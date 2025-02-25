@@ -24,26 +24,36 @@
         <img src="/logo-transparent.png" alt="logo"/>
       </div>
       <div class="flex justify-center">
-        <div class="grid grid-cols-[1fr] lg:grid-cols-[1fr_1fr_1fr] sm:grid-cols-[1fr_1fr] gap-5 w-2/3 mx-auto">
-          <div v-for="card in cards" class="flex items-center justify-center">
+        <div class="grid grid-cols-[1fr] lg:grid-cols-[1fr_1fr_1fr] sm:grid-cols-[1fr_1fr] gap-8 w-4/5 mx-auto py-10">
+          <div v-for="(card, index) in cards" class="flex items-center justify-center group">
             <!-- Container that will be exactly the size of the card -->
-            <div class="relative inline-block">
-              <!-- Skewed black box background -->
+            <div class="relative inline-block transform transition-transform duration-300 hover:scale-105">
+              <!-- Skewed black box background with subtle gradient -->
               <div
-                  class="absolute inset-0 bg-black transform -skew-y-6"
+                  class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black rounded-lg transform -rotate-3 scale-102 shadow-xl"
                   style="transform-origin: center center;"
               ></div>
 
-              <!-- Original card -->
-              <UCard class="relative h-fit-content z-10">
+              <!-- Original card with improved styling -->
+              <UCard class="relative z-10 overflow-hidden border-none shadow-lg">
                 <template #header>
-                  <h4 class="font-molle text-3xl text-pink-600">
-                    {{card.title}}
-                  </h4>
+                  <div class="relative pb-2 mb-3 border-b border-pink-200">
+                    <h4 class="font-molle text-3xl text-pink-600">
+                      {{card.title}}
+                    </h4>
+                    <div class="absolute bottom-0 left-0 w-1/3 h-1 bg-pink-500 rounded-full"></div>
+                  </div>
                 </template>
-                <p class="text-black">
+                <p class="text-black leading-relaxed">
                   {{card.text}}
                 </p>
+                <template #footer>
+                  <div class="flex justify-end pt-2 mt-4">
+                    <button class="px-4 py-2 text-sm font-medium text-white bg-pink-600 rounded-full hover:bg-pink-700 transition-colors duration-300">
+                      Learn More
+                    </button>
+                  </div>
+                </template>
               </UCard>
             </div>
           </div>
