@@ -24,17 +24,29 @@
         <img src="/logo-transparent.png" alt="logo"/>
       </div>
       <div class="flex justify-center">
-        <div class="grid grid-cols-[1fr] lg:grid-cols-[1fr_1fr_1fr] sm:grid-cols-[1fr_1fr] gap-5 w-2/3">
-          <UCard v-for="card in cards" class="h-fit-content">
-            <template #header>
-              <h4 class="font-molle text-3xl text-white">
-                {{card.title}}
-              </h4>
-            </template>
-            <p>
-              {{card.text}}
-            </p>
-          </UCard>
+        <div class="grid grid-cols-[1fr] lg:grid-cols-[1fr_1fr_1fr] sm:grid-cols-[1fr_1fr] gap-5 w-2/3 mx-auto">
+          <div v-for="card in cards" class="flex items-center justify-center">
+            <!-- Container that will be exactly the size of the card -->
+            <div class="relative inline-block">
+              <!-- Skewed black box background -->
+              <div
+                  class="absolute inset-0 bg-black transform -skew-y-6"
+                  style="transform-origin: center center;"
+              ></div>
+
+              <!-- Original card -->
+              <UCard class="relative h-fit-content z-10">
+                <template #header>
+                  <h4 class="font-molle text-3xl text-pink-600">
+                    {{card.title}}
+                  </h4>
+                </template>
+                <p class="text-black">
+                  {{card.text}}
+                </p>
+              </UCard>
+            </div>
+          </div>
         </div>
       </div>
     </div>
