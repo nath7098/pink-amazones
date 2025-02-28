@@ -129,6 +129,8 @@
             Devenir membre
           </UButton>
         </div>
+
+        <pink-gauge v-if="montant" :montant="montant" :total="total" />
       </div>
 
       <!-- Upcoming Events Preview -->
@@ -152,40 +154,23 @@
 
         <div class="grid md:grid-cols-2 gap-6">
           <!-- Sample event cards -->
-          <div class="border border-pink-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-            <div class="h-40 bg-pink-200 relative">
-              <div class="absolute inset-0 flex items-center justify-center text-pink-500 opacity-30">
-                <UIcon name="i-heroicons-calendar-days" class="w-24 h-24" />
+          <div v-for="event in next2Events"
+               class="border border-pink-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <div class="h-40 bg-pink-200 relative overflow-hidden">
+              <div class="absolute inset-0 flex items-center justify-center text-pink-100">
+                <img v-if="event.image" :src="event.image" class="absolute top-0"/>
+                <UIcon v-else name="i-heroicons-calendar-days" class="w-24 h-24" />
               </div>
               <div class="absolute top-4 left-4 bg-pink-600 text-white py-1 px-3 rounded-full text-sm font-bold">
-                25 Mar 2025
+                {{ event.date.toLocaleDateString('fr', {day: '2-digit', month: 'short', year: 'numeric'}) }}
               </div>
             </div>
             <div class="p-4">
-              <h3 class="font-bold text-lg mb-2">Marche Rose</h3>
-              <p class="text-gray-600 mb-3">Parcours de 5km pour sensibiliser au dépistage du cancer du sein.</p>
+              <h3 class="font-bold text-lg mb-2">{{ event.title }}</h3>
+              <p class="text-gray-600 mb-3">{{ event.description }}</p>
               <div class="flex items-center text-gray-500 text-sm">
                 <UIcon name="i-heroicons-map-pin" class="w-4 h-4 mr-1" />
-                <span>Pernay, Place du village</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="border border-pink-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-            <div class="h-40 bg-pink-200 relative">
-              <div class="absolute inset-0 flex items-center justify-center text-pink-500 opacity-30">
-                <UIcon name="i-heroicons-calendar-days" class="w-24 h-24" />
-              </div>
-              <div class="absolute top-4 left-4 bg-pink-600 text-white py-1 px-3 rounded-full text-sm font-bold">
-                15 Avr 2025
-              </div>
-            </div>
-            <div class="p-4">
-              <h3 class="font-bold text-lg mb-2">Atelier Bien-être</h3>
-              <p class="text-gray-600 mb-3">Séance de yoga et méditation pour les patientes et leurs proches.</p>
-              <div class="flex items-center text-gray-500 text-sm">
-                <UIcon name="i-heroicons-map-pin" class="w-4 h-4 mr-1" />
-                <span>Centre communal, Pernay</span>
+                <span>{{ event.location }}</span>
               </div>
             </div>
           </div>
@@ -195,14 +180,35 @@
 </template>
 
 <script setup lang="ts">
+import PinkGauge from '~/components/pink-gauge.vue';
+
 definePageMeta({
   title: 'Bienvenue sur Pink Amazones',
   catchLine: 'Ensemble contre le cancer du sein'
+});
+
+const next2Events = useEventsStore().next2Events;
+const cagnotte = useCookie('cagnotte', {maxAge: 3600});
+const montant = ref(null);
+const total = ref(null);
+// const percent = computed(() => montant.value ? (montant.value / total.value * 100).toFixed(0) : 0);
+
+onMounted(async () => {
+    if (!cagnotte.value) {
+      await nextTick(async () => {
+        const {data} = await useAsyncData(async () => await $fetch<string>('/api/dons'));
+      montant.value = parseInt(data?.value?.dons, 10) ?? null;
+      total.value = parseInt(data?.value?.objectif, 10) ?? null;
+      cagnotte.value = {montant: montant.value, total: total.value};
+      });
+    } else {
+      total.value = cagnotte.value.total;
+      montant.value = cagnotte.value.montant;
+    }
 })
+
 </script>
 
 <style scoped>
-.shadow-text {
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-}
+
 </style>

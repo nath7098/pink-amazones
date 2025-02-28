@@ -82,7 +82,7 @@
               </div>
               <div
                   class="absolute top-4 left-4 bg-pink-600 text-white py-1 px-3 rounded-full text-sm font-bold shadow-md">
-                {{ event.date }}
+                {{ event.date.toLocaleDateString('fr', {day: '2-digit', month: 'short', year: 'numeric'}) }}
               </div>
               <div
                   class="absolute top-4 right-4 bg-white text-pink-600 py-1 px-3 rounded-full text-sm font-bold shadow-md">
@@ -157,7 +157,7 @@
             <tbody>
             <tr v-for="(event, index) in filteredPastEvents" :key="index"
                 class="border-t border-pink-100 hover:bg-pink-50 transition-colors">
-              <td class="py-3 px-4 text-gray-700">{{ event.date }}</td>
+              <td class="py-3 px-4 text-gray-700">{{ event.date.toLocaleDateString('fr', {day: '2-digit', month: 'short', year: 'numeric' }) }}</td>
               <td class="py-3 px-4 text-gray-700 font-medium">{{ event.title }}</td>
               <td class="py-3 px-4 text-gray-600 hidden md:table-cell">{{ event.location }}</td>
               <td class="py-3 px-4 hidden md:table-cell">
@@ -269,11 +269,14 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+import { useEventsStore } from '../stores/events';
 
 definePageMeta({
   title: 'Nos Évènements',
   catchLine: 'Rejoignez-nous pour agir contre le cancer du sein'
 })
+
+const eventsStore = useEventsStore();
 
 // Active filter state
 const activeFilter = ref('all');
@@ -284,75 +287,10 @@ const setFilter = (filter) => {
 };
 
 // Sample upcoming events data
-const upcomingEvents = [
-  {
-    title: 'Salon des roses',
-    date: '08 Mar 2025',
-    time: '10:00 - 17:00',
-    location: 'L\'escale - Allée René Coulon 37540 Saint-Cyr-Sur-Loire',
-    description: 'Gratuit et ouvert à tous !',
-    type: 'Sensibilisation',
-    image: 'https://cdn.eu.yapla.com/company/CPYtv0MnpBl4ROU59xFwmdsIk/88625/241789/images/1-1739978466.jpg'
-  },
-  {
-    title: 'Atelier Bien-être',
-    date: '15 Avr 2025',
-    time: '14:30 - 16:30',
-    location: 'Centre communal, Pernay',
-    description: 'Séance de yoga et méditation pour les patientes et leurs proches.',
-    type: 'Soutien'
-  },
-  {
-    title: 'Dîner Caritatif',
-    date: '02 Mai 2025',
-    time: '19:30 - 23:00',
-    location: 'Salle des fêtes, Pernay',
-    description: 'Soirée gastronomique dont les bénéfices financeront nos actions de soutien.',
-    type: 'Collecte de fonds'
-  },
-  {
-    title: 'Conférence Prévention',
-    date: '18 Mai 2025',
-    time: '18:00 - 20:00',
-    location: 'Mairie de Pernay',
-    description: 'Intervention de professionnels de santé sur l\'importance du dépistage précoce.',
-    type: 'Sensibilisation'
-  }
-];
+const upcomingEvents = eventsStore.upcomingEvents;
 
 // Sample past events data
-const pastEvents = [
-  {
-    title: 'Course pour la vie',
-    date: '10 Oct 2024',
-    location: 'Parc de Pernay',
-    type: 'Sensibilisation'
-  },
-  {
-    title: 'Vente de pâtisseries',
-    date: '25 Sep 2024',
-    location: 'Marché de Pernay',
-    type: 'Collecte de fonds'
-  },
-  {
-    title: 'Groupe de parole',
-    date: '15 Sep 2024',
-    location: 'Centre social, Pernay',
-    type: 'Soutien'
-  },
-  {
-    title: 'Exposition photos',
-    date: '01 Sep 2024',
-    location: 'Médiathèque de Pernay',
-    type: 'Sensibilisation'
-  },
-  {
-    title: 'Concert solidaire',
-    date: '15 Août 2024',
-    location: 'Place de l\'église, Pernay',
-    type: 'Collecte de fonds'
-  }
-];
+const pastEvents = eventsStore.pastEvents;
 
 // Filtered upcoming events based on active filter
 const filteredUpcomingEvents = computed(() => {
