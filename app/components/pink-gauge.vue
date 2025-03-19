@@ -88,9 +88,9 @@ async function fetchTotal() {
 
   try {
     const {data} = await useLazyFetch(`${apiBaseUrl}/donations/total`);
-    value = data.value?.total || 0;
+    let value = data.value?.total || 0;
     cagnotte.value = {montant: value};
-    return count;
+    return value;
   } catch (error) {
     console.error('Error fetching donations amount:', error);
     return 0; // Sample fallback count
