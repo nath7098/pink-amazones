@@ -146,88 +146,98 @@ const categories = [
 const selectedCategory = ref('all')
 
 // Sample gallery images
-const images = ref([
-  {
-    id: 1,
-    src: 'https://www.letrait.fr/wp-content/uploads/2023/09/%C3%A9v%C3%A8nement-web-occtobre-rose-2023-900x587-760x500.jpg',
-    alt: 'Marche Rose - Octobre 2024',
-    title: 'Marche Rose',
-    date: 'Octobre 2024',
-    category: 'events',
-    description: 'Plus de 200 participants ont marché ensemble pour sensibiliser au dépistage du cancer du sein.',
-    loaded: false
-  },
-  {
-    id: 2,
-    src: '/api/placeholder/800/800',
-    alt: 'Atelier bien-être',
-    title: 'Atelier bien-être',
-    date: 'Septembre 2024',
-    category: 'workshops',
-    description: 'Un moment de détente et de partage pour les patientes en cours de traitement.',
-    loaded: false
-  },
-  {
-    id: 3,
-    src: '/api/placeholder/800/800',
-    alt: 'Stand de sensibilisation',
-    title: 'Stand de sensibilisation',
-    date: 'Août 2024',
-    category: 'awareness',
-    description: 'Notre équipe a animé un stand d\'information sur l\'importance du dépistage précoce.',
-    loaded: false
-  },
-  {
-    id: 4,
-    src: '/api/placeholder/800/800',
-    alt: 'Groupe de parole',
-    title: 'Groupe de parole',
-    date: 'Juillet 2024',
-    category: 'support',
-    description: 'Échange et partage d\'expériences entre patientes et anciennes patientes.',
-    loaded: false
-  },
-  {
-    id: 5,
-    src: '/api/placeholder/800/800',
-    alt: 'Course solidaire',
-    title: 'Course solidaire',
-    date: 'Juin 2024',
-    category: 'events',
-    description: 'Course organisée au profit de la recherche contre le cancer du sein.',
-    loaded: false
-  },
-  {
-    id: 6,
-    src: '/api/placeholder/800/800',
-    alt: 'Atelier nutrition',
-    title: 'Atelier nutrition',
-    date: 'Mai 2024',
-    category: 'workshops',
-    description: 'Conseils et échanges autour de l\'alimentation pendant et après les traitements.',
-    loaded: false
-  },
-  {
-    id: 7,
-    src: '/api/placeholder/800/800',
-    alt: 'Conférence médicale',
-    title: 'Conférence médicale',
-    date: 'Avril 2024',
-    category: 'awareness',
-    description: 'Intervention de spécialistes sur les avancées de la recherche contre le cancer du sein.',
-    loaded: false
-  },
-  {
-    id: 8,
-    src: '/api/placeholder/800/800',
-    alt: 'Séance de yoga adapté',
-    title: 'Séance de yoga adapté',
-    date: 'Mars 2024',
-    category: 'support',
-    description: 'Séance de yoga spécialement conçue pour les femmes en traitement ou en rémission.',
-    loaded: false
-  }
-])
+const images = ref(useEventsStore().events.filter(e => e.image).map((e, i) => ({
+  id: i,
+  src: e.image,
+  alt: e.title,
+  title: e.title,
+  date: e.date.toLocaleDateString('fr', {day: '2-digit', month: 'short', year: 'numeric'}),
+  category: 'events',
+  description: e.description,
+  loaded: false
+})));
+// ref([
+//   {
+//     id: 1,
+//     src: 'https://www.letrait.fr/wp-content/uploads/2023/09/%C3%A9v%C3%A8nement-web-occtobre-rose-2023-900x587-760x500.jpg',
+//     alt: 'Marche Rose - Octobre 2024',
+//     title: 'Marche Rose',
+//     date: 'Octobre 2024',
+//     category: 'events',
+//     description: 'Plus de 200 participants ont marché ensemble pour sensibiliser au dépistage du cancer du sein.',
+//     loaded: false
+//   },
+//   {
+//     id: 2,
+//     src: '/api/placeholder/800/800',
+//     alt: 'Atelier bien-être',
+//     title: 'Atelier bien-être',
+//     date: 'Septembre 2024',
+//     category: 'workshops',
+//     description: 'Un moment de détente et de partage pour les patientes en cours de traitement.',
+//     loaded: false
+//   },
+//   {
+//     id: 3,
+//     src: '/api/placeholder/800/800',
+//     alt: 'Stand de sensibilisation',
+//     title: 'Stand de sensibilisation',
+//     date: 'Août 2024',
+//     category: 'awareness',
+//     description: 'Notre équipe a animé un stand d\'information sur l\'importance du dépistage précoce.',
+//     loaded: false
+//   },
+//   {
+//     id: 4,
+//     src: '/api/placeholder/800/800',
+//     alt: 'Groupe de parole',
+//     title: 'Groupe de parole',
+//     date: 'Juillet 2024',
+//     category: 'support',
+//     description: 'Échange et partage d\'expériences entre patientes et anciennes patientes.',
+//     loaded: false
+//   },
+//   {
+//     id: 5,
+//     src: '/api/placeholder/800/800',
+//     alt: 'Course solidaire',
+//     title: 'Course solidaire',
+//     date: 'Juin 2024',
+//     category: 'events',
+//     description: 'Course organisée au profit de la recherche contre le cancer du sein.',
+//     loaded: false
+//   },
+//   {
+//     id: 6,
+//     src: '/api/placeholder/800/800',
+//     alt: 'Atelier nutrition',
+//     title: 'Atelier nutrition',
+//     date: 'Mai 2024',
+//     category: 'workshops',
+//     description: 'Conseils et échanges autour de l\'alimentation pendant et après les traitements.',
+//     loaded: false
+//   },
+//   {
+//     id: 7,
+//     src: '/api/placeholder/800/800',
+//     alt: 'Conférence médicale',
+//     title: 'Conférence médicale',
+//     date: 'Avril 2024',
+//     category: 'awareness',
+//     description: 'Intervention de spécialistes sur les avancées de la recherche contre le cancer du sein.',
+//     loaded: false
+//   },
+//   {
+//     id: 8,
+//     src: '/api/placeholder/800/800',
+//     alt: 'Séance de yoga adapté',
+//     title: 'Séance de yoga adapté',
+//     date: 'Mars 2024',
+//     category: 'support',
+//     description: 'Séance de yoga spécialement conçue pour les femmes en traitement ou en rémission.',
+//     loaded: false
+//   }
+// ])
 
 // Filter images based on selected category
 const filteredImages = computed(() => {

@@ -104,16 +104,32 @@
                   <UIcon name="i-heroicons-map-pin" class="w-5 h-5 mr-2 text-pink-500"/>
                   <span>{{ event.location }}</span>
                 </div>
+                <div v-if="event.price != undefined" class="flex items-center text-gray-500">
+                  <UIcon name="i-heroicons-currency-euro" class="w-5 h-5 mr-2 text-pink-500"/>
+                  <span>{{ event.price.toLocaleString('fr') }} €</span>
+                </div>
               </div>
 
               <div class="flex justify-end">
                 <UButton
+                    v-if="event.link"
+                    @click.prevent="openLink(event.link)"
                     variant="outline"
                     color="pink"
                     class="rounded-full group-hover:bg-pink-600 group-hover:text-white transition-colors"
                 >
                   <UIcon name="i-heroicons-ticket" class="w-4 h-4 mr-1"/>
                   S'inscrire
+                </UButton>
+                <UButton
+                    v-else
+                    disabled
+                    variant="outline"
+                    color="pink"
+                    class="rounded-full"
+                >
+                  <UIcon name="i-heroicons-ticket" class="w-4 h-4 mr-1"/>
+                  Sans inscription
                 </UButton>
               </div>
             </div>
@@ -319,4 +335,10 @@ const filteredPastEvents = computed(() => {
     return pastEvents.filter(event => event.type === filterMap[activeFilter.value]);
   }
 });
+
+const openLink = (link) => {
+  if (link) {
+    navigateTo(link, {external: true, open: {target: '_blank'}});
+  }
+}
 </script>

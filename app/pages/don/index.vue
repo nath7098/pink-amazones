@@ -16,8 +16,10 @@
       </div>
     </div>
 
+    <pink-gauge />
+
     <!-- Why Donate Section -->
-    <div class="max-w-5xl mx-auto mb-16">
+    <div class="max-w-5xl mx-auto my-16">
       <div class="bg-white rounded-xl shadow-md overflow-hidden">
         <div class="p-8">
           <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 relative inline-block">
@@ -47,9 +49,9 @@
             <div class="bg-pink-50 p-6 rounded-lg border border-pink-100 hover:shadow-md transition-shadow">
               <div class="flex items-center mb-4">
                 <UIcon name="i-heroicons-academic-cap" class="w-8 h-8 text-pink-600 mr-3"/>
-                <h3 class="font-bold text-gray-800">Contribuer</h3>
+                <h3 class="font-bold text-gray-800">Financer</h3>
               </div>
-              <p class="text-gray-700">Participer au financement de la recherche et du développement de nouveaux traitements contre le cancer du sein.</p>
+              <p class="text-gray-700">Financer des actions concrètes pour améliorer le quotidien des patientes.</p>
             </div>
           </div>
 
@@ -85,7 +87,7 @@
               </div>
             </div>
             <UButton
-                @click="openDonate"
+                @click="goToDonation"
                 variant="solid"
                 color="pink"
                 class="w-full rounded-full shadow-md"
@@ -113,7 +115,7 @@
               </div>
             </div>
             <UButton
-                @click="openDonate"
+                @click="goToDonation"
                 variant="solid"
                 color="pink"
                 class="w-full rounded-full shadow-md"
@@ -124,31 +126,31 @@
         </div>
 
         <!-- Corporate Donation -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 border border-pink-100">
-          <div class="h-2 bg-pink-500"></div>
-          <div class="p-6">
-            <h3 class="font-bold text-xl text-gray-800 mb-4">Don d'entreprise</h3>
-            <p class="text-gray-700 mb-6">Engagez votre entreprise dans une démarche solidaire et responsable.</p>
-            <div class="space-y-4 mb-6">
-              <div class="flex items-start">
-                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>
-                <span class="text-gray-700">Réduction d'impôt de 60%</span>
-              </div>
-              <div class="flex items-start">
-                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>
-                <span class="text-gray-700">Partenariat sur mesure</span>
-              </div>
-            </div>
-            <UButton
-                @click="openDonate"
-                variant="outline"
-                color="pink"
-                class="w-full rounded-full hover:bg-pink-600 hover:text-white transition-colors"
-            >
-              Devenir partenaire
-            </UButton>
-          </div>
-        </div>
+<!--        <div class="bg-white rounded-xl shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 border border-pink-100">-->
+<!--          <div class="h-2 bg-pink-500"></div>-->
+<!--          <div class="p-6">-->
+<!--            <h3 class="font-bold text-xl text-gray-800 mb-4">Don d'entreprise</h3>-->
+<!--            <p class="text-gray-700 mb-6">Engagez votre entreprise dans une démarche solidaire et responsable.</p>-->
+<!--            <div class="space-y-4 mb-6">-->
+<!--              <div class="flex items-start">-->
+<!--                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>-->
+<!--                <span class="text-gray-700">Réduction d'impôt de 60%</span>-->
+<!--              </div>-->
+<!--              <div class="flex items-start">-->
+<!--                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>-->
+<!--                <span class="text-gray-700">Partenariat sur mesure</span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <UButton-->
+<!--                @click="openDonate"-->
+<!--                variant="outline"-->
+<!--                color="pink"-->
+<!--                class="w-full rounded-full hover:bg-pink-600 hover:text-white transition-colors"-->
+<!--            >-->
+<!--              Devenir partenaire-->
+<!--            </UButton>-->
+<!--          </div>-->
+<!--        </div>-->
       </div>
     </div>
 
@@ -233,40 +235,7 @@
       </h2>
 
       <div class="space-y-4">
-        <UAccordion>
-          <UAccordionItem>
-            <template #default>
-              <div class="text-lg font-medium text-gray-800">Comment mon don est-il utilisé ?</div>
-            </template>
-            <template #content>
-              <p class="text-gray-700">
-                L'intégralité de votre don est dédiée à nos missions de soutien aux patientes, de sensibilisation au dépistage et de contribution à la recherche. Nos frais administratifs sont couverts par des subventions spécifiques.
-              </p>
-            </template>
-          </UAccordionItem>
-
-          <UAccordionItem>
-            <template #default>
-              <div class="text-lg font-medium text-gray-800">Mon don est-il déductible des impôts ?</div>
-            </template>
-            <template #content>
-              <p class="text-gray-700">
-                Oui, en tant qu'association reconnue d'utilité publique, vos dons sont déductibles des impôts à hauteur de 66% dans la limite de 20% de votre revenu imposable. Par exemple, un don de 100€ ne vous coûte réellement que 34€ après déduction fiscale.
-              </p>
-            </template>
-          </UAccordionItem>
-
-          <UAccordionItem>
-            <template #default>
-              <div class="text-lg font-medium text-gray-800">Puis-je faire un don en mémoire d'un proche ?</div>
-            </template>
-            <template #content>
-              <p class="text-gray-700">
-                Oui, vous avez la possibilité de faire un don en mémoire d'un proche. Vous pouvez indiquer son nom lors de votre don en ligne, ou nous contacter directement pour organiser un don commémoratif.
-              </p>
-            </template>
-          </UAccordionItem>
-        </UAccordion>
+        <UAccordion :items="accordionItems" />
       </div>
     </div>
 
@@ -296,7 +265,22 @@ definePageMeta({
   catchLine: 'Ensemble contre le cancer du sein'
 });
 
-const openDonate = () => {
-  navigateTo('https://pink-amazones.s2.yapla.com/fr/campaign-10303/donate/lancement-association-pink-amazones/10303', {external: true, open: {target: '_blank'}});
+const accordionItems = ref([
+  {
+    label: 'Comment mon don est-il utilisé ?',
+    content: 'L\'intégralité de votre don est dédiée à nos missions de soutien aux patientes, de sensibilisation au dépistage et de contribution à la recherche. Nos frais administratifs sont couverts par des subventions spécifiques.',
+  },
+  {
+    label: 'Mon don est-il déductible des impôts ?',
+    content: 'Malheureusement, notre association n\'étant pas encore reconnue d\'utilité publique, vos dons ne sont pas déductibles des impôts pour le moment.'
+  },
+  {
+    label: 'Puis-je faire un don en mémoire d\'un proche ?',
+    content: 'Oui, vous avez la possibilité de faire un don en mémoire d\'un proche. Vous pouvez indiquer son nom lors de votre don en ligne, ou nous contacter directement pour organiser un don commémoratif.'
+  }
+]);
+
+const goToDonation = () => {
+  navigateTo('/don/formulaire')
 }
 </script>

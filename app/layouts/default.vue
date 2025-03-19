@@ -29,7 +29,7 @@
     <!-- Enhanced navigation menu -->
     <div
         :class="[
-        'md:w-auto w-fit-content md:relative md:bottom-0 absolute md:translate-y-0 translate-y-full right-4 bg-white z-[9999] md:p-0 md:mb-5 mb-0 p-4 md:border-0 border border-pink-200 rounded-lg md:block shadow-lg md:shadow-none transition-all duration-300',
+        'md:w-auto w-fit-content md:relative md:bottom-0 absolute md:translate-y-0 translate-y-full right-4 bg-white z-[10] md:p-0 md:mb-5 mb-0 p-4 md:border-0 border border-pink-200 rounded-lg md:block shadow-lg md:shadow-none transition-all duration-300',
         !toggled && 'hidden',
       ]"
     >
@@ -75,7 +75,7 @@
           color="pink"
           size="xl"
           class="fixed left-[2rem] bottom-[2rem] shadow-lg shadow-pink-900/30 rounded-full transform transition-transform hover:scale-105 hover:-translate-y-1 z-50 animate-pulse"
-          to="/don"
+          @click="navigateTo('/donation')"
       >
         <span class="flex items-center gap-x-2">
           <UIcon name="i-heroicons-heart" class="w-5 h-5" />

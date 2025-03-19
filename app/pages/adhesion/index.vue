@@ -13,8 +13,10 @@
       </div>
     </div>
 
+    <pink-members />
+
     <!-- Why Join Section -->
-    <div class="max-w-5xl mx-auto mb-16">
+    <div class="max-w-5xl mx-auto mb-16 mt-16">
       <div class="bg-white rounded-xl shadow-md overflow-hidden">
         <div class="p-8">
           <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 relative inline-block">
@@ -27,10 +29,10 @@
           <div class="grid md:grid-cols-3 gap-6 mb-8">
             <div class="bg-pink-50 p-6 rounded-lg border border-pink-100 hover:shadow-md transition-shadow">
               <div class="flex items-center mb-4">
-                <UIcon name="i-heroicons-academic-cap" class="w-8 h-8 text-pink-600 mr-3"/>
-                <h3 class="font-bold text-gray-800">Recherche</h3>
+                <UIcon name="i-heroicons-user-group" class="w-8 h-8 text-pink-600 mr-3"/>
+                <h3 class="font-bold text-gray-800">Communauté</h3>
               </div>
-              <p class="text-gray-700">Financer des projets de recherche pour mieux comprendre et traiter le cancer du sein.</p>
+              <p class="text-gray-700">Créer une communauté forte et solidaire, prête à se mobiliser ensemble pour une cause qui nous touche tous.</p>
             </div>
 
             <div class="bg-pink-50 p-6 rounded-lg border border-pink-100 hover:shadow-md transition-shadow">
@@ -49,10 +51,6 @@
               <p class="text-gray-700">Sensibiliser et informer sur les gestes de prévention, essentiels pour lutter efficacement contre cette maladie.</p>
             </div>
           </div>
-
-          <p class="text-lg text-gray-700">
-            Votre adhésion permet également de créer une communauté forte et solidaire, prête à se mobiliser ensemble pour une cause qui nous touche tous.
-          </p>
         </div>
       </div>
     </div>
@@ -83,7 +81,7 @@
                 <h3 class="font-bold text-xl text-pink-600 mb-4">Rejoignez-nous aujourd'hui</h3>
                 <p class="text-gray-700 mb-6">Ensemble, nous avons la force de faire la différence.</p>
                 <UButton
-                    @click="openAdhesion"
+                    @click="goToAdhesion"
                     variant="solid"
                     color="pink"
                     size="lg"
@@ -98,6 +96,8 @@
         </div>
       </div>
     </div>
+
+
 
     <!-- Membership Options -->
     <div class="max-w-5xl mx-auto mb-16">
@@ -141,107 +141,77 @@
 
 
         <!-- Individual Membership -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 border border-pink-100">
-          <div class="h-2 bg-pink-500"></div>
-          <div class="p-6">
-            <h3 class="font-bold text-xl text-gray-800 mb-2">Adhésion Pink Amazones</h3>
-            <div class="text-pink-600 text-3xl font-bold mb-4">30€ <span class="text-sm text-gray-500 font-normal">/an</span></div>
-            <ul class="space-y-2 mb-6">
-              <li class="flex items-start">
-                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>
-                <span class="text-gray-700">Participation à nos événements</span>
-              </li>
-              <li class="flex items-start">
-                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>
-                <span class="text-gray-700">Bulletin d'information mensuel</span>
-              </li>
-              <li class="flex items-start">
-                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>
-                <span class="text-gray-700">Possibilité de faire du bénévolat</span>
-              </li>
-            </ul>
-            <UButton
-                @click="openAdhesion"
-                variant="outline"
-                color="pink"
-                class="w-full rounded-full hover:bg-pink-600 hover:text-white transition-colors"
-            >
-              Choisir cette option
-            </UButton>
-          </div>
-        </div>
+<!--        <div class="bg-white rounded-xl shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 border border-pink-100">-->
+<!--          <div class="h-2 bg-pink-500"></div>-->
+<!--          <div class="p-6">-->
+<!--            <h3 class="font-bold text-xl text-gray-800 mb-2">Adhésion Pink Amazones</h3>-->
+<!--            <div class="text-pink-600 text-3xl font-bold mb-4">30€ <span class="text-sm text-gray-500 font-normal">/an</span></div>-->
+<!--            <ul class="space-y-2 mb-6">-->
+<!--              <li class="flex items-start">-->
+<!--                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>-->
+<!--                <span class="text-gray-700">Participation à nos événements</span>-->
+<!--              </li>-->
+<!--              <li class="flex items-start">-->
+<!--                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>-->
+<!--                <span class="text-gray-700">Bulletin d'information mensuel</span>-->
+<!--              </li>-->
+<!--              <li class="flex items-start">-->
+<!--                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>-->
+<!--                <span class="text-gray-700">Possibilité de faire du bénévolat</span>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--            <UButton-->
+<!--                @click="goToAdhesion"-->
+<!--                variant="outline"-->
+<!--                color="pink"-->
+<!--                class="w-full rounded-full hover:bg-pink-600 hover:text-white transition-colors"-->
+<!--            >-->
+<!--              Choisir cette option-->
+<!--            </UButton>-->
+<!--          </div>-->
+<!--        </div>-->
 
         <!-- Supporting Membership -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 border border-pink-100">
-          <div class="h-2 bg-pink-500"></div>
-          <div class="p-6">
-            <h3 class="font-bold text-xl text-gray-800 mb-2">Adhésion Pink Amazones</h3>
-            <div class="text-pink-600 text-3xl font-bold mb-4">30€ <span class="text-sm text-gray-500 font-normal">/an</span></div>
-            <ul class="space-y-2 mb-6">
-              <li class="flex items-start">
-                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>
-                <span class="text-gray-700">Participation à nos événements</span>
-              </li>
-              <li class="flex items-start">
-                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>
-                <span class="text-gray-700">Bulletin d'information mensuel</span>
-              </li>
-              <li class="flex items-start">
-                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>
-                <span class="text-gray-700">Possibilité de faire du bénévolat</span>
-              </li>
-            </ul>
-            <UButton
-                @click="openAdhesion"
-                variant="outline"
-                color="pink"
-                class="w-full rounded-full hover:bg-pink-600 hover:text-white transition-colors"
-            >
-              Choisir cette option
-            </UButton>
-          </div>
-        </div>
+<!--        <div class="bg-white rounded-xl shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 border border-pink-100">-->
+<!--          <div class="h-2 bg-pink-500"></div>-->
+<!--          <div class="p-6">-->
+<!--            <h3 class="font-bold text-xl text-gray-800 mb-2">Adhésion Pink Amazones</h3>-->
+<!--            <div class="text-pink-600 text-3xl font-bold mb-4">30€ <span class="text-sm text-gray-500 font-normal">/an</span></div>-->
+<!--            <ul class="space-y-2 mb-6">-->
+<!--              <li class="flex items-start">-->
+<!--                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>-->
+<!--                <span class="text-gray-700">Participation à nos événements</span>-->
+<!--              </li>-->
+<!--              <li class="flex items-start">-->
+<!--                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>-->
+<!--                <span class="text-gray-700">Bulletin d'information mensuel</span>-->
+<!--              </li>-->
+<!--              <li class="flex items-start">-->
+<!--                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>-->
+<!--                <span class="text-gray-700">Possibilité de faire du bénévolat</span>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--            <UButton-->
+<!--                @click="goToAdhesion"-->
+<!--                variant="outline"-->
+<!--                color="pink"-->
+<!--                class="w-full rounded-full hover:bg-pink-600 hover:text-white transition-colors"-->
+<!--            >-->
+<!--              Choisir cette option-->
+<!--            </UButton>-->
+<!--          </div>-->
+<!--        </div>-->
       </div>
     </div>
 
     <!-- Testimonials -->
     <div class="max-w-5xl mx-auto mb-16">
       <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 relative inline-block">
-        Témoignages de nos membres
+        Témoignages
         <div class="absolute -bottom-2 left-0 w-16 h-1 bg-pink-500 rounded-full"></div>
       </h2>
 
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white p-6 rounded-xl shadow-md border border-pink-100">
-          <div class="flex items-center mb-4">
-            <div class="bg-pink-100 rounded-full w-12 h-12 flex items-center justify-center text-pink-600 mr-4">
-              <UIcon name="i-heroicons-user-circle" class="w-10 h-10" />
-            </div>
-            <div>
-              <h4 class="font-bold text-gray-800">Sophie D.</h4>
-              <p class="text-gray-500 text-sm">Membre depuis 2023</p>
-            </div>
-          </div>
-          <p class="text-gray-700 italic">
-            "Rejoindre Pink Amazones a été une décision transformatrice pour moi. Après mon diagnostic, j'avais besoin d'un réseau de soutien, et j'ai trouvé bien plus : une famille qui comprend vraiment ce que je traverse."
-          </p>
-        </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-md border border-pink-100">
-          <div class="flex items-center mb-4">
-            <div class="bg-pink-100 rounded-full w-12 h-12 flex items-center justify-center text-pink-600 mr-4">
-              <UIcon name="i-heroicons-user-circle" class="w-10 h-10" />
-            </div>
-            <div>
-              <h4 class="font-bold text-gray-800">Marie L.</h4>
-              <p class="text-gray-500 text-sm">Membre bienfaiteur</p>
-            </div>
-          </div>
-          <p class="text-gray-700 italic">
-            "Je n'ai jamais été touchée directement par le cancer du sein, mais ma tante l'a été. Soutenir Pink Amazones me permet d'agir concrètement pour une cause qui me tient à cœur. Les événements sont toujours inspirants."
-          </p>
-        </div>
-      </div>
+      <pink-testimonials-adhesion />
     </div>
 
     <!-- FAQ Section -->
@@ -277,6 +247,8 @@
 </template>
 
 <script setup lang="ts">
+import PinkMembers from '~/components/pink-members.vue';
+
 definePageMeta({
   title: 'Adhésion',
   catchLine: 'Ensemble contre le cancer du sein'
@@ -285,19 +257,19 @@ definePageMeta({
 const accordionItems = ref([
   {
     label: 'Comment mon adhésion est-elle utilisée ?',
-    content: 'Votre cotisation nous permet de financer nos actions de soutien, de sensibilisation et de prévention. Une partie est également reversée à la recherche contre le cancer du sein.',
+    content: 'Votre cotisation nous permet de financer nos actions de soutien, de sensibilisation et de prévention.',
   },
   {
   label: 'Puis-je m\'impliquer en tant que bénévole ?',
-    content: 'Absolument ! Nous accueillons avec joie les membres qui souhaitent s\'engager davantage. Vous pouvez nous aider lors des événements, participer aux actions de sensibilisation ou apporter vos compétences spécifiques à l\'association.'
+    content: 'Absolument ! Nous accueillons avec joie les membres qui souhaitent s\'engager davantage. Vous pouvez nous aider lors des événements (exemple tenue d\'un stand vente de gâteau, aide à l\'installation et démontage du stand..), participer aux actions de sensibilisation ou apporter vos compétences spécifiques à l\'association.'
   },
   {
     label: 'L\'adhésion est-elle déductible des impôts ?',
-    content: 'Oui, en tant qu\'association reconnue d\'utilité publique, votre adhésion et vos dons sont déductibles des impôts à hauteur de 66% dans la limite de 20% de votre revenu imposable. Un reçu fiscal vous sera envoyé.'
+    content: 'Malheureusement, notre association n\'étant pas encore reconnue d\'utilité publique, votre adhésion n\'est pas déductibles des impôts pour le moment.'
   }
 ]);
 
-const openAdhesion = () => {
-  navigateTo("https://pink-amazones.s2.yapla.com/fr/espace-membres", {external: true, open: {target: '_blank'}});
+const goToAdhesion = () => {
+  navigateTo("/adhesion/formulaire");
 }
 </script>

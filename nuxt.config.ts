@@ -19,5 +19,14 @@ export default defineNuxtConfig({
   app: {
     pageTransition: {name: 'page', mode: 'out-in'},
     layoutTransition: {name: 'page', mode: 'out-in'},
+  },
+  runtimeConfig: {
+    public: {
+      apiBaseUrl: 'http://localhost:3033',
+      helloAsso: {
+        don: '',
+        adhesion: ''
+      }
+    }
   }
 })
