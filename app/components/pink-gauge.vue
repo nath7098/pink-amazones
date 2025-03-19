@@ -1,6 +1,6 @@
 <template>
   <div></div>
-  <div v-if="total" class="mt-8 max-w-2xl mx-auto">
+  <div v-if="total != undefined" class="mt-8 max-w-2xl mx-auto">
     <!-- Progress stats -->
     <div class="flex justify-between items-center mb-3">
       <div class="flex flex-col">
