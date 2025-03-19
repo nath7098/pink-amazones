@@ -90,12 +90,12 @@ async function fetchMemberCount() {
 
   try {
     const { data } = await useLazyFetch(`${apiBaseUrl}/adhesions/total`);
-    const count = data.value?.total || 427; // Sample fallback count
+    const count = data.value?.total || 0; // Sample fallback count
     adhesionCache.value = { count };
     return count;
   } catch (error) {
     console.error('Error fetching member count:', error);
-    return 427; // Sample fallback count
+    return 0; // Sample fallback count
   }
 }
 </script>

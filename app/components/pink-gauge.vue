@@ -82,19 +82,19 @@ const objectif = ref(2000);
 const percent = computed(() => total.value ? (total.value / objectif.value * 100).toFixed(0) : 0);
 
 async function fetchTotal() {
-  let value;
-  if (!cagnotte.value) {
-    const {data} = await useLazyFetch(`${apiBaseUrl}/donations/total`);
-    if (data && data.value) {
-      value = data.value.total;
-    } else {
-      value = null;
-    }
-    cagnotte.value = {montant: value};
-  } else {
-    value = cagnotte.value.montant;
+  if (cagnotte.value) {
+    return cagnotte.value.montant;
   }
-  return value;
+
+  try {
+    const {data} = await useLazyFetch(`${apiBaseUrl}/donations/total`);
+    value = data.value?.total || 0;
+    cagnotte.value = {montant: value};
+    return count;
+  } catch (error) {
+    console.error('Error fetching donations amount:', error);
+    return 0; // Sample fallback count
+  }
 }
 
 </script>
