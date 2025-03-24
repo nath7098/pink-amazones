@@ -31,7 +31,7 @@
             <p class="text-gray-600 text-center font-medium mb-4">Présidente</p>
             <div class="flex items-center bg-pink-200 text-pink-800 px-4 py-2 rounded-full font-bold mb-4">
               <UIcon name="i-heroicons-book-open" class="w-5 h-5 mr-2"/>
-              <span>Autrice de "Au-delà du cancer"</span>
+              <span>Autrice de "Mon cancer m'a sauvé la vie !"</span>
             </div>
           </div>
 
@@ -149,21 +149,21 @@
         <!-- Florian - Trésorier -->
         <pink-bureau-member name="Florian Gallou" post="Trésorier" image="/img/equipe/florian-gallou.png">
           <template #default>
-            <div>Je m'appelle Florian, trésorier de l'association Pink Amazones.</div>
+            <div><span class="text-pink-600">Je m'appelle Florian</span>, trésorier de l'association Pink Amazones.</div>
             <div>Mais avant tout, je suis le conjoint de Linda.</div>
             <div>Mon rôle dans l’association ? Eh bien, je jongle avec les chiffres tout en étant un soutien infaillible
               pour Linda, à qui je dois parfois rappeler où elle a mis ses clés (ou son téléphone, ou son agenda… vous
               voyez le genre). Je m'investis dans cette belle aventure, non seulement par amour pour elle, mais aussi
               par amour des gens et de tout ce que cette association représente : solidarité, entraide et une bonne dose
               de rires partagés.</div>
-            <div>Parce qu’au fond, derrière chaque projet, il y a une équipe (et parfois un homme avec une
+            <div class="font-italic text-pink-600">Parce qu’au fond, derrière chaque projet, il y a une équipe (et parfois un homme avec une
               calculette).</div>
           </template>
         </pink-bureau-member>
 
         <!-- Ambroisine - Secrétaire -->
         <pink-bureau-member name="Ambroisine Dissakalou" post="Secrétaire" image="/img/equipe/ambroisine-dissakalou.png">
-          <div>Je suis Ambroisine, secrétaire de l'association.</div>
+          <div><span class="text-pink-600">Je suis Ambroisine</span>, secrétaire de l'association.</div>
           <div>
             J’ai choisi de m’investir dans ce groupe car l’histoire de Linda m’a profondément émue. Ayant moi-même vécu
             de près le cancer à travers mon amie Laurence, je n’ai pas hésité une seconde : je me suis sentie immédiatement concernée.
@@ -173,7 +173,7 @@
             difficile de faire face à la maladie, surtout lorsqu’on est seule.
           </div>
           <div>Et puis, au fond, nous sommes toutes et tous concerné(e)s.</div>
-          <div>Quand on peut donner un peu de son temps pour une bonne cause, il ne faut pas hésiter — c’est une évidence pour moi.</div>
+          <div class="font-italic text-pink-600">Quand on peut donner un peu de son temps pour une bonne cause, il ne faut pas hésiter — c’est une évidence pour moi.</div>
         </pink-bureau-member>
       </div>
     </div>
