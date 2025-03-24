@@ -40,7 +40,9 @@
             { to: '/evenements', label: 'Nos événements' },
             { to: '/adhesion', label: 'Adhésion' },
             { to: '/don', label: 'Don' },
+            { to: '/partenariats', label: 'Partenaires'},
             { to: '/about', label: 'À propos' },
+            { to: '/equipe', label: 'L\'équipe'},
             { to: '/photos', label: 'Photos' },
             { to: '/contact', label: 'Nous contacter' }
           ]"

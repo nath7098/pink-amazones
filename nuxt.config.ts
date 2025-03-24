@@ -19,6 +19,13 @@ export default defineNuxtConfig({
   app: {
     pageTransition: {name: 'page', mode: 'out-in'},
     layoutTransition: {name: 'page', mode: 'out-in'},
+    head: {
+      title: 'Pink Amazones',
+      htmlAttrs: {lang: 'fr'},
+      link: [
+        {rel: 'icon', href: '/favicon.ico', type: 'image/x-icon'},
+      ]
+    }
   },
   runtimeConfig: {
     public: {
