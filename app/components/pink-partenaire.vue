@@ -35,7 +35,7 @@
         <!-- Contact information -->
         <div class="mt-6 bg-pink-50 p-4 rounded-lg">
           <h4 class="font-semibold text-pink-700 mb-2">Informations & RDV</h4>
-          <div class="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-3">
+          <div class="grid grid-cols-[1fr] md:grid-cols-[1fr_1fr] gap-3">
             <div v-if="partenaire.contactName" class="flex items-center">
               <UIcon name="i-heroicons-user" class="w-5 h-5 text-teal-500 mr-2"/>
               <span class="text-gray-700">{{partenaire.contactName}}</span>
@@ -60,7 +60,7 @@
               <UIcon name="i-mdi-instagram" class="w-5 h-5 text-pink-500 mr-2"/>
               <a :href="`https://${partenaire.instagram}`" target="_blank" class="text-gray-700 hover:text-pink-600">{{ formatInstagram }}</a>
             </div>
-            <div v-if="partenaire.location" class="flex items-center odd:col-span-2">
+            <div v-if="partenaire.location" class="flex items-center md:odd:col-span-2">
               <UIcon name="i-heroicons-map-pin" class="w-5 h-5 text-pink-500 mr-2"/>
               <span class="text-gray-700">{{ partenaire.location }}</span>
             </div>
