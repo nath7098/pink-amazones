@@ -211,9 +211,28 @@
 <script setup>
 import PinkUndeline from '~/components/decoratives/pink-undeline.vue';
 import PinkBureauMember from '~/components/pink-bureau-member.vue';
+import {PinkTeamMember} from '~/types/pink-team-member';
 
 definePageMeta({
   title: 'Notre Équipe',
   catchLine: 'Des femmes engagées dans la lutte contre le cancer du sein'
-})
+});
+const team = ref<Array<PinkTeamMember>>([
+  {
+    name: 'Linda Martins',
+    post: 'Présidente',
+    line: `Autrice de "Mon cancer m'a sauvé la vie !"`,
+    image: '/img/equipe/linda-martins.png',
+    full: true,
+    component: () => import('~/components/team/pink-members-linda-martins-content.vue')
+  },
+  {
+    name: 'Linda Martins',
+    post: 'Présidente',
+    line: `Autrice de "Mon cancer m'a sauvé la vie !"`,
+    image: '/img/equipe/linda-martins.png',
+    full: true,
+    component: () => import('~/components/team/pink-members-linda-martins-content.vue')
+  },
+])
 </script>

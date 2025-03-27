@@ -1,9 +1,20 @@
 import { defineStore } from 'pinia';
-import { PinkEvent } from '../types/pink-event';
+import { type PinkEvent } from '~/types/pink-event';
 
 export const useEventsStore = defineStore('events', {
     state: () => ({
         events: [
+            {
+                title: 'Blabla Café',
+                date: new Date('2025/04/16'),
+                time: '14:00 - 17:00',
+                location: 'Boulangerie FEUILLETTE - Saint-Cyr-Sur-Loire',
+                description: 'Vous êtes touché(e) par un cancer de sein ? Vous accompagnez un proche concerné ? Prenez un moment pour vous. Partagez votre parcours, vos ressentis, vos questions et vos besoins, autour d’un café, dans un cadre bienveillant et convivial.',
+                price: 5,
+                type: 'Soutien',
+                image: '/img/events/blabla-cafe.png',
+                link: 'https://www.helloasso.com/associations/pink-amazones/evenements/blabla-cafe'
+            },
             {
                 title: 'Marche rose',
                 date: new Date('2025/03/30'),
@@ -34,7 +45,7 @@ export const useEventsStore = defineStore('events', {
     }),
     getters: {
         orderedEvents(state) {
-            return state.events.sort((a, b) => a.date.getTime() >= b.date.getTime())
+            return state.events.sort((a, b) => a.date.getTime() >= b.date.getTime() ? 1 : -1)
         },
         upcomingEvents(): Array<PinkEvent> {
             return this.orderedEvents.filter((e: PinkEvent) => e.date.getTime() >= Date.now())
