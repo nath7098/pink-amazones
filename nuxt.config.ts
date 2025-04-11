@@ -1,7 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@nuxtjs/google-fonts", '@pinia/nuxt'],
+  modules: [
+    "@nuxt/ui",
+    "@nuxtjs/google-fonts",
+    '@pinia/nuxt',
+    '@nuxtjs/supabase'
+  ],
   compatibilityDate: "2025-02-20",
   future: {
     compatibilityVersion: 4
@@ -25,6 +30,15 @@ export default defineNuxtConfig({
       link: [
         {rel: 'icon', href: '/favicon.ico', type: 'image/x-icon'},
       ]
+    }
+  },
+  supabase: {
+    url: process.env.NUXT_PUBLIC_SUPABASE_URL || 'https://hsrgsofjhimsxsglmmqx.supabase.co',
+    key: process.env.NUXT_PUBLIC_SUPABASE_KEY || '',
+    redirectOptions: {
+      login: '/',
+      callback: '/',
+      exclude: ['/**']
     }
   },
   runtimeConfig: {

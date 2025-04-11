@@ -10,60 +10,97 @@
       </div>
     </div>
 
-    <!-- Gallery Filters -->
-    <div class="mb-10 flex flex-wrap justify-center gap-3">
-      <UButton
-          v-for="category in categories"
-          :key="category.id"
-          :variant="selectedCategory === category.id ? 'solid' : 'outline'"
-          color="pink"
-          size="md"
-          class="rounded-full"
-          @click="selectedCategory = category.id"
-      >
-        {{ category.name }}
-      </UButton>
-    </div>
+    <!-- Folders Section -->
+    <div v-if="showingFolders" class="mb-12">
+      <h2 class="text-2xl font-bold text-pink-700 mb-6 text-center">Albums Photos</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+        <div
+            v-for="(folder, index) in folders"
+            :key="index"
+            class="cursor-pointer group"
+            @click="openFolder(folder)"
+        >
+          <div class="relative w-full pb-[100%] rounded-lg overflow-hidden shadow-md">
+            <!-- Folder preview (first image or placeholder) -->
+            <div
+                v-if="!folder.previewLoaded"
+                class="absolute inset-0 bg-pink-100 flex flex-col items-center justify-center"
+            >
+              <UIcon name="i-heroicons-folder" class="w-12 h-12 text-pink-300"/>
+              <p class="text-pink-500 font-medium mt-2">{{ folder.name }}</p>
+            </div>
 
-    <!-- Gallery Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-16">
-      <div
-          v-for="(image, index) in filteredImages"
-          :key="index"
-          class="cursor-pointer group"
-          @click="openLightbox(image)"
-      >
-        <div class="relative w-full pb-[100%] rounded-lg overflow-hidden shadow-md">
-          <!-- Loading placeholder -->
-          <div
-              v-if="!image.loaded"
-              class="absolute inset-0 bg-pink-100 flex items-center justify-center"
-          >
-            <UIcon name="i-heroicons-photo" class="w-10 h-10 text-pink-300" />
-          </div>
+            <!-- Folder preview image -->
+            <img
+                v-if="folder.previewImage"
+                :src="folder.previewImage"
+                :alt="folder.name"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                @load="folder.previewLoaded = true"
+                v-show="folder.previewLoaded"
+            />
 
-          <!-- Image with loading handler -->
-          <img
-              :src="image.src"
-              :alt="image.alt"
-              class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              @load="image.loaded = true"
-              v-show="image.loaded"
-          />
-
-          <!-- Image overlay with caption -->
-          <div class="absolute inset-0 bg-gradient-to-t from-pink-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-            <p class="text-white font-medium">{{ image.title }}</p>
-            <p class="text-pink-100 text-sm">{{ image.date }}</p>
+            <!-- Folder overlay with info -->
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-pink-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+              <p class="text-white font-medium">{{ folder.name }}</p>
+              <p class="text-pink-100 text-sm">{{ folder.images?.length || 0 }} photos</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Empty state when no images match filter -->
-    <div v-if="filteredImages.length === 0" class="text-center py-12">
-      <UIcon name="i-heroicons-photo" class="w-16 h-16 text-pink-200 mx-auto mb-4" />
-      <p class="text-gray-500">Aucune image disponible dans cette catégorie</p>
+    <!-- Folder View -->
+    <div v-if="selectedFolder" class="mb-12">
+      <div class="flex justify-between items-center mb-6">
+        <UButton
+            variant="outline"
+            color="pink"
+            size="md"
+            class="rounded-full"
+            @click="closeFolder"
+        >
+          <UIcon name="i-heroicons-arrow-left" class="w-5 h-5 mr-2"/>
+          Retour aux albums
+        </UButton>
+        <h3 class="text-xl font-bold text-pink-700">{{ selectedFolder.name }}</h3>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div
+            v-for="(image, index) in selectedFolder.images"
+            :key="index"
+            class="cursor-pointer group"
+            @click="openLightbox(image)"
+        >
+          <div class="relative w-full pb-[100%] rounded-lg overflow-hidden shadow-md">
+            <!-- Loading placeholder -->
+            <div
+                v-if="!image.loaded"
+                class="absolute inset-0 bg-pink-100 flex items-center justify-center"
+            >
+              <UIcon name="i-heroicons-photo" class="w-10 h-10 text-pink-300"/>
+            </div>
+
+            <!-- Image with loading handler -->
+            <img
+                :src="image.src"
+                :alt="image.alt"
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                @load="image.loaded = true"
+                v-show="image.loaded"
+            />
+
+            <!-- Image overlay with caption -->
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-pink-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+              <p class="text-white font-medium">{{ image.title || 'Photo' }}</p>
+              <p class="text-pink-100 text-sm">{{ image.date || '' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Lightbox -->
@@ -81,7 +118,7 @@
               class="absolute top-2 right-2 bg-pink-900/50 hover:bg-pink-900/70"
               @click="lightboxOpen = false"
           >
-            <UIcon name="i-heroicons-x-mark" class="w-5 h-5" />
+            <UIcon name="i-heroicons-x-mark" class="w-5 h-5"/>
           </UButton>
         </div>
         <div class="mt-4">
@@ -104,7 +141,7 @@
             class="rounded-full shadow-lg transform transition-transform hover:scale-105 hover:-translate-y-1"
             to="/evenements"
         >
-          <UIcon name="i-heroicons-calendar" class="w-5 h-5 mr-2" />
+          <UIcon name="i-heroicons-calendar" class="w-5 h-5 mr-2"/>
           Voir nos événements
         </UButton>
 
@@ -115,7 +152,7 @@
             class="rounded-full shadow-md transform transition-transform hover:scale-105 hover:-translate-y-1"
             to="/adhesion"
         >
-          <UIcon name="i-heroicons-user-plus" class="w-5 h-5 mr-2" />
+          <UIcon name="i-heroicons-user-plus" class="w-5 h-5 mr-2"/>
           Devenir membre
         </UButton>
       </div>
@@ -124,132 +161,100 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed } from 'vue';
 
 definePageMeta({
   title: 'Galerie Photos',
   catchLine: 'Nos actions en images'
 })
 
+const {storage} = useSupabaseClient();
+
 // Image loading state
-const lightboxOpen = ref(false)
-const currentImage = ref(null)
+const lightboxOpen = ref(false);
+const currentImage = ref(null);
 
-// Categories for filtering
-const categories = [
-  { id: 'all', name: 'Tous' },
-  { id: 'events', name: 'Événements' },
-  { id: 'awareness', name: 'Sensibilisation' },
-  { id: 'support', name: 'Soutien' },
-  { id: 'workshops', name: 'Ateliers' }
-]
-const selectedCategory = ref('all')
+// Folder handling state
+const folders = ref([]);
+const selectedFolder = ref(null);
+const showingFolders = ref(true);
+const showIndividualImages = ref(true);
 
-// Sample gallery images
-const images = ref(useEventsStore().events.filter(e => e.image).map((e, i) => ({
-  id: i,
-  src: e.image,
-  alt: e.title,
-  title: e.title,
-  date: e.date.toLocaleDateString('fr', {day: '2-digit', month: 'short', year: 'numeric'}),
-  category: 'events',
-  description: e.description,
-  loaded: false
-})));
-// ref([
-//   {
-//     id: 1,
-//     src: 'https://www.letrait.fr/wp-content/uploads/2023/09/%C3%A9v%C3%A8nement-web-occtobre-rose-2023-900x587-760x500.jpg',
-//     alt: 'Marche Rose - Octobre 2024',
-//     title: 'Marche Rose',
-//     date: 'Octobre 2024',
-//     category: 'events',
-//     description: 'Plus de 200 participants ont marché ensemble pour sensibiliser au dépistage du cancer du sein.',
-//     loaded: false
-//   },
-//   {
-//     id: 2,
-//     src: '/api/placeholder/800/800',
-//     alt: 'Atelier bien-être',
-//     title: 'Atelier bien-être',
-//     date: 'Septembre 2024',
-//     category: 'workshops',
-//     description: 'Un moment de détente et de partage pour les patientes en cours de traitement.',
-//     loaded: false
-//   },
-//   {
-//     id: 3,
-//     src: '/api/placeholder/800/800',
-//     alt: 'Stand de sensibilisation',
-//     title: 'Stand de sensibilisation',
-//     date: 'Août 2024',
-//     category: 'awareness',
-//     description: 'Notre équipe a animé un stand d\'information sur l\'importance du dépistage précoce.',
-//     loaded: false
-//   },
-//   {
-//     id: 4,
-//     src: '/api/placeholder/800/800',
-//     alt: 'Groupe de parole',
-//     title: 'Groupe de parole',
-//     date: 'Juillet 2024',
-//     category: 'support',
-//     description: 'Échange et partage d\'expériences entre patientes et anciennes patientes.',
-//     loaded: false
-//   },
-//   {
-//     id: 5,
-//     src: '/api/placeholder/800/800',
-//     alt: 'Course solidaire',
-//     title: 'Course solidaire',
-//     date: 'Juin 2024',
-//     category: 'events',
-//     description: 'Course organisée au profit de la recherche contre le cancer du sein.',
-//     loaded: false
-//   },
-//   {
-//     id: 6,
-//     src: '/api/placeholder/800/800',
-//     alt: 'Atelier nutrition',
-//     title: 'Atelier nutrition',
-//     date: 'Mai 2024',
-//     category: 'workshops',
-//     description: 'Conseils et échanges autour de l\'alimentation pendant et après les traitements.',
-//     loaded: false
-//   },
-//   {
-//     id: 7,
-//     src: '/api/placeholder/800/800',
-//     alt: 'Conférence médicale',
-//     title: 'Conférence médicale',
-//     date: 'Avril 2024',
-//     category: 'awareness',
-//     description: 'Intervention de spécialistes sur les avancées de la recherche contre le cancer du sein.',
-//     loaded: false
-//   },
-//   {
-//     id: 8,
-//     src: '/api/placeholder/800/800',
-//     alt: 'Séance de yoga adapté',
-//     title: 'Séance de yoga adapté',
-//     date: 'Mars 2024',
-//     category: 'support',
-//     description: 'Séance de yoga spécialement conçue pour les femmes en traitement ou en rémission.',
-//     loaded: false
-//   }
-// ])
-
-// Filter images based on selected category
-const filteredImages = computed(() => {
-  if (selectedCategory.value === 'all') {
-    return images.value
-  }
-  return images.value.filter(image => image.category === selectedCategory.value)
-})
 
 // Open lightbox with selected image
 const openLightbox = (image) => {
-  currentImage.value = image
-  lightboxOpen.value = true
+  currentImage.value = image;
+  lightboxOpen.value = true;
 }
+
+// Open folder to display its images
+const openFolder = (folder) => {
+  selectedFolder.value = folder;
+  showingFolders.value = false;
+  showIndividualImages.value = false;
+}
+
+// Close folder view and return to main gallery
+const closeFolder = () => {
+  selectedFolder.value = null;
+  showingFolders.value = true;
+  showIndividualImages.value = true;
+}
+
+// Load folder data on component mount
+onMounted(async () => {
+  try {
+    // Get folder list
+    const {data: folderList, error: folderError} = await storage.from('pink-images').list();
+
+    if (folderError) {
+      console.error('Error fetching folders:', folderError);
+      return;
+    }
+
+    // Process each folder
+    for (const folder of folderList || []) {
+      // Skip files at root level
+      if (!folder.name.includes('.')) {
+        // Get images in this folder
+        const {data: folderImages, error: imageError} = await storage.from('pink-images').list(folder.name);
+
+        if (imageError) {
+          console.error(`Error fetching images for folder ${folder.name}:`, imageError);
+          continue;
+        }
+
+        // Create folder object with processed images
+        const processedImages = folderImages.map(img => {
+          // Skip any folders inside folders
+          if (!img.name.includes('.')) {
+            return null;
+          }
+
+          // Get public URL for the image
+          const src = storage.from('pink-images').getPublicUrl(`${folder.name}/${img.name}`).data.publicUrl;
+
+          return {
+            src,
+            alt: img.name,
+            title: img.name.replace(/\.[^/.]+$/, ''), // Remove file extension for title
+            loaded: false
+          };
+        }).filter(Boolean); // Remove any null entries
+
+        if (processedImages.length > 0) {
+          // Add the folder with its images to our folders list
+          folders.value.push({
+            name: folder.name?.replace(/[-_]/, ' '),
+            images: processedImages,
+            previewImage: processedImages[0]?.src || null,
+            previewLoaded: false
+          });
+        }
+      }
+    }
+  } catch (error) {
+    console.error('Error processing folders:', error);
+  }
+});
 </script>
