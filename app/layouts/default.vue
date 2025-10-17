@@ -81,7 +81,7 @@
             color="pink"
             size="xl"
             class="fixed left-[2rem] bottom-[2rem] shadow-lg shadow-pink-900/30 rounded-full transform transition-transform hover:scale-105 hover:-translate-y-1 z-50 animate-pulse"
-            @click="navigateTo('/donation')"
+            @click="navigateTo('/don')"
         >
         <span class="flex items-center gap-x-2">
           <UIcon name="i-heroicons-heart" class="w-5 h-5"/>
