@@ -77,10 +77,10 @@
             <h3 class="font-bold text-xl text-gray-800 mb-4">Don ponctuel</h3>
             <p class="text-gray-700 mb-6">Un soutien immédiat pour nous aider à poursuivre nos actions quotidiennes.</p>
             <div class="space-y-4 mb-6">
-              <div class="flex items-start">
-                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>
-                <span class="text-gray-700">Déductible des impôts à 66%</span>
-              </div>
+<!--              <div class="flex items-start">-->
+<!--                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>-->
+<!--                <span class="text-gray-700">Déductible des impôts à 66%</span>-->
+<!--              </div>-->
               <div class="flex items-start">
                 <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>
                 <span class="text-gray-700">Soutient nos actions immédiates</span>
@@ -105,10 +105,10 @@
             <h3 class="font-bold text-xl text-gray-800 mb-4">Don mensuel</h3>
             <p class="text-gray-700 mb-6">Un soutien régulier pour nous permettre de planifier nos actions sur le long terme.</p>
             <div class="space-y-4 mb-6">
-              <div class="flex items-start">
-                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>
-                <span class="text-gray-700">Déductible des impôts à 66%</span>
-              </div>
+<!--              <div class="flex items-start">-->
+<!--                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>-->
+<!--                <span class="text-gray-700">Déductible des impôts à 66%</span>-->
+<!--              </div>-->
               <div class="flex items-start">
                 <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>
                 <span class="text-gray-700">Assure la pérennité de nos programmes</span>
