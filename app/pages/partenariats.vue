@@ -247,7 +247,7 @@ const becomcha = ref({
   alt: 'Becom\'Cha',
   name: 'Becom\'Cha',
   description: 'Graphiste',
-  website: 'https://becom-cha.fr/',
+  website: 'becom-cha.fr',
   contactName: 'Charlène',
   phone: '0682746174',
   mail: 'contact@becom-cha.fr',
@@ -259,7 +259,7 @@ const monCheminDeCouleur = ref({
   alt: 'Mon chemin de couleur',
   name: 'Pink Amazones x Mon chemin de couleur',
   description: 'hypnothérapeute bénévole pour enfants avec différents ateliers',
-  website: 'https://mon-chemin-de-couleur.fr/',
+  website: 'mon-chemin-de-couleur.fr',
   contactName: 'Élodie Meterreau',
   phone: '0616661102',
   location: 'Chemin de Couleur, 37390 Chanceaux-sur-Choisille'
