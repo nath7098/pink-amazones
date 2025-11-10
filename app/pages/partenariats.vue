@@ -18,6 +18,58 @@
         <pink-undeline />
       </h2>
 
+      <!-- Partners Logo Banner - Infinite Scroll -->
+      <div class="relative bg-gradient-to-r from-pink-50 via-white to-pink-50 rounded-xl shadow-sm py-8 mb-12 overflow-hidden">
+        <!-- Gradient overlays for smooth edges -->
+        <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-pink-50 to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-pink-50 to-transparent z-10 pointer-events-none"></div>
+
+        <!-- Scrolling container -->
+        <div class="flex animate-scroll">
+          <!-- First set of logos -->
+          <div class="flex shrink-0 gap-16 px-8">
+            <div
+                v-for="(partner, index) in nosPartenaires"
+                :key="`first-${index}`"
+                class="flex items-center justify-center px-6"
+            >
+              <img
+                  :src="partner.image"
+                  :alt="partner.name"
+                  class="h-16 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  :title="partner.name"
+              />
+            </div>
+          </div>
+
+          <!-- Duplicate set for seamless loop -->
+          <div class="flex shrink-0 gap-16 px-8">
+            <div
+                v-for="(partner, index) in nosPartenaires"
+                :key="`second-${index}`"
+                class="flex items-center justify-center px-6"
+            >
+              <img
+                  :src="partner.image"
+                  :alt="partner.name"
+                  class="h-16 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  :title="partner.name"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flor & Sens Partnership Card -->
+      <pink-partenaire :partenaire="becomcha">
+
+      </pink-partenaire>
+
+      <!-- Flor & Sens Partnership Card -->
+      <pink-partenaire :partenaire="monCheminDeCouleur">
+
+      </pink-partenaire>
+
       <!-- Flor & Sens Partnership Card -->
       <pink-partenaire :partenaire="florEtSens">
         <template #text>
@@ -180,8 +232,41 @@ definePageMeta({
   catchLine: 'Des avantages exclusifs pour nos adhérentes'
 });
 
+const CDN = 'https://cdn.nathancouton.fr/partenaires';
+
+const nosPartenaires = ref([
+  {image: `${CDN}/ballan_mire.jpg`, name: 'Ville de Ballan-Miré'},
+  {image: `${CDN}/fondettes.png`, name: 'Ville de Fondettes'},
+  {image: `${CDN}/credit_agricole.png`, name: 'Crédit Agricole'},
+  {image: `${CDN}/aubriere.jpg`, name: 'Association Aubrière'},
+  {image: `${CDN}/helloasso.png`, name: 'HelloAsso'},
+])
+
+const becomcha = ref({
+  image: `${CDN}/becomcha.png`,
+  alt: 'Becom\'Cha',
+  name: 'Becom\'Cha',
+  description: 'Graphiste',
+  website: 'https://becom-cha.fr/',
+  contactName: 'Charlène',
+  phone: '0682746174',
+  mail: 'contact@becom-cha.fr',
+  location: 'Pernay'
+});
+
+const monCheminDeCouleur = ref({
+  image: `${CDN}/mon_chemin_de_couleur.jpg`,
+  alt: 'Mon chemin de couleur',
+  name: 'Pink Amazones x Mon chemin de couleur',
+  description: 'hypnothérapeute bénévole pour enfants avec différents ateliers',
+  website: 'https://mon-chemin-de-couleur.fr/',
+  contactName: 'Élodie Meterreau',
+  phone: '0616661102',
+  location: 'Chemin de Couleur, 37390 Chanceaux-sur-Choisille'
+});
+
 const florEtSens = ref({
-  image: '/img/partenaires/flor-et-sens.png',
+  image: `${CDN}/flor-et-sens.png`,
   alt: 'Flor & Sens',
   name: 'Pink Amazones x Flor & Sens',
   description: 'Massages bien-être adaptés',
@@ -194,7 +279,7 @@ const florEtSens = ref({
 });
 
 const alequilibre = ref({
-  image: '/img/partenaires/alequilibre.png',
+  image: `${CDN}/alequilibre.png`,
   alt: 'Alequilibre',
   name: 'Pink Amazones x Alequilibre',
   description: 'Diététicienne Nutritionniste',
@@ -208,13 +293,32 @@ const alequilibre = ref({
 });
 
 const crabette = ref({
-  image: '/img/partenaires/crabette.jpg',
+  image: `${CDN}/crabette.jpg`,
   alt: 'Crabette',
   name: 'Pink Amazones x Crabette',
-  description: 'Collecte solidaire d’accessoires liés au cancer du sein',
+  description: 'Collecte solidaire d\'accessoires liés au cancer du sein',
   website: 'crabette.fr',
   instagram: 'www.instagram.com/delphine_crabette/',
   location: 'Point de collecte - Mairie de PERNAY',
 })
 
 </script>
+
+<style scoped>
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+</style>

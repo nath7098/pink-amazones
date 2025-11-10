@@ -5,6 +5,38 @@ export const useEventsStore = defineStore('events', {
     state: () => ({
         events: [
             {
+                title: 'Octobre Rose - Marche et course nature à fondettes',
+                date: new Date('2025/10/25'),
+                location: 'Fondettes',
+                description: 'marche et course nature à fondettes, où tous les bénéfices ont été reversés à notre association, avec la tenue d\'un stand .',
+                type: 'Soutien',
+                image: 'https://cdn.nathancouton.fr/event_la_belle_aubriere/001.jpg',
+            },
+            {
+                title: 'Octobre Rose - Intervention MFR d\'azay le rideau',
+                date: new Date('2025/10/09'),
+                location: 'MFR - Azay-le-Rideau',
+                description: 'Intervention de sensibilisation et prévention auprès de jeunes de 4eme, 3eme 1ere et terminale.',
+                type: 'Sensibilisation',
+                image: 'https://cdn.nathancouton.fr/event_mfr/001.jpg',
+            },
+            {
+                title: 'Octobre Rose - stand de sensibilisation et prévention',
+                date: new Date('2025/10/06'),
+                location: 'Pôle VINCI - Chambray',
+                description: 'Stand de sensibilisation et prévention.',
+                type: 'Sensibilisation',
+                image: 'https://cdn.nathancouton.fr/event_pslv/001.jpg',
+            },
+            {
+                title: 'Défi solidaire 20 000 pochettes Institut Curie',
+                date: new Date('2025/09/01'),
+                location: 'Ballan Miré',
+                description: 'Envoie de plusieurs pochettes, trousses confectionnées grateuicesement pour offrir douceur et reconfort aux femmes atteintes du cancer du sein à l\'Institut Curie',
+                type: 'Soutien',
+                image: 'https://cdn.nathancouton.fr/event_curi/001.jpg',
+            },
+            {
                 title: 'Blabla Café',
                 date: new Date('2025/04/16'),
                 time: '14:00 - 17:00',
@@ -54,7 +86,7 @@ export const useEventsStore = defineStore('events', {
             return this.upcomingEvents.filter((e, i) => i < 2)
         },
         pastEvents(): Array<PinkEvent> {
-            return this.orderedEvents.filter((e: PinkEvent) => e.date.getTime() < Date.now())
+            return this.orderedEvents.reverse().filter((e: PinkEvent) => e.date.getTime() < Date.now())
         },
     },
     actions: {}

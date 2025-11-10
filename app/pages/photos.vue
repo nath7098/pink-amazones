@@ -161,14 +161,25 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 
 definePageMeta({
   title: 'Galerie Photos',
   catchLine: 'Nos actions en images'
 })
 
-const {storage} = useSupabaseClient();
+// CDN Configuration
+const CDN_BASE_URL = 'https://cdn.nathancouton.fr/';
+
+// Event directories with image counts
+const EVENT_CONFIGS = {
+  'event_curi': {name: 'Défi solidaire 20 000 pochettes Institut Curie', count: 2},
+  'event_la_belle_aubriere': {name: 'Marche et course nature à Fondettes', count: 4},
+  'event_mfr': {name: 'Intervention MFR d\'azay le rideau', count: 2},
+  'event_pslv': {name: 'Stand de sensibilisation et prévention Vinci', count: 3},
+  'event_salon_des_roses_2025': {name: 'Salon des roses', count: 6},
+  'event_marche_rose_2025': {name: 'Marche Rose', count: 10}
+};
 
 // Image loading state
 const lightboxOpen = ref(false);
@@ -180,6 +191,24 @@ const selectedFolder = ref(null);
 const showingFolders = ref(true);
 const showIndividualImages = ref(true);
 
+// Helper function to get all images for a directory
+const getImagesForDirectory = (directory: string, data: any) => {
+  const images = [];
+
+  for (let i = 1; i <= data.count; i++) {
+    const paddedIndex = String(i).padStart(3, '0');
+    const imageUrl = `${CDN_BASE_URL}${directory}/${paddedIndex}.jpg`;
+
+    images.push({
+      src: imageUrl,
+      alt: `${data.name} - Photo ${paddedIndex}`,
+      title: `Photo ${data.name}`,
+      loaded: false
+    });
+  }
+
+  return images;
+};
 
 // Open lightbox with selected image
 const openLightbox = (image) => {
@@ -202,55 +231,19 @@ const closeFolder = () => {
 }
 
 // Load folder data on component mount
-onMounted(async () => {
+onMounted(() => {
   try {
-    // Get folder list
-    const {data: folderList, error: folderError} = await storage.from('pink-images').list();
+    // Process each event directory
+    for (const [directory, data] of Object.entries(EVENT_CONFIGS)) {
+      const images = getImagesForDirectory(directory, data);
 
-    if (folderError) {
-      console.error('Error fetching folders:', folderError);
-      return;
-    }
-
-    // Process each folder
-    for (const folder of folderList || []) {
-      // Skip files at root level
-      if (!folder.name.includes('.')) {
-        // Get images in this folder
-        const {data: folderImages, error: imageError} = await storage.from('pink-images').list(folder.name);
-
-        if (imageError) {
-          console.error(`Error fetching images for folder ${folder.name}:`, imageError);
-          continue;
-        }
-
-        // Create folder object with processed images
-        const processedImages = folderImages.map(img => {
-          // Skip any folders inside folders
-          if (!img.name.includes('.')) {
-            return null;
-          }
-
-          // Get public URL for the image
-          const src = storage.from('pink-images').getPublicUrl(`${folder.name}/${img.name}`).data.publicUrl;
-
-          return {
-            src,
-            alt: img.name,
-            title: img.name.replace(/\.[^/.]+$/, ''), // Remove file extension for title
-            loaded: false
-          };
-        }).filter(Boolean); // Remove any null entries
-
-        if (processedImages.length > 0) {
-          // Add the folder with its images to our folders list
-          folders.value.push({
-            name: folder.name?.replace(/[-_]/, ' '),
-            images: processedImages,
-            previewImage: processedImages[0]?.src || null,
-            previewLoaded: false
-          });
-        }
+      if (images.length > 0) {
+        folders.value.push({
+          name: data.name,
+          images: images,
+          previewImage: images[0]?.src || null,
+          previewLoaded: false
+        });
       }
     }
   } catch (error) {
