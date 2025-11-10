@@ -4,7 +4,7 @@
       <div class="flex flex-wrap justify-center gap-x-10 gap-y-4 pt-4 mb-8 bg-white rounded-lg shadow-md p-4">
         <div class="flex items-center gap-x-2 shrink-0 transition-transform hover:scale-105">
           <UIcon name="i-heroicons-map-pin" class="w-6 h-6 text-pink-600"/>
-          <div class="text-gray-800 font-medium">Pernay</div>
+          <div class="text-gray-800 font-medium">Ballan-Miré (37510)</div>
         </div>
         <div class="flex items-center gap-x-2 shrink-0 transition-transform hover:scale-105">
           <UIcon name="i-heroicons-phone" class="w-6 h-6 text-pink-600"/>
