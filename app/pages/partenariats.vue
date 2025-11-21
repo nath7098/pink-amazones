@@ -70,6 +70,23 @@
 
       </pink-partenaire>
 
+      <pink-partenaire :partenaire="aubriere">
+        <template #text>
+          <p class="mb-4 font-medium text-lg text-pink-700">
+            Chères adhérentes,
+          </p>
+
+          <p class="mb-4">
+            L'équipe Pink Amazones vous présente aujourd’hui un rapide aperçu de <strong>L’Aubrière</strong>, une association culturelle fondée en 1966 à Fondettes. Inspirée par les valeurs de l’éducation populaire, elle œuvre pour le lien social, la créativité et l’épanouissement de tous à travers de nombreuses activités encadrées par une équipe de bénévoles et de salariés.
+          </p>
+
+          <p class="mb-4">
+            L’association propose un large éventail d’activités : bien-être, enseignement artistique, ateliers, événements culturels et actions solidaires, dont l’Ultra Traversée Solidaire 37. Elle encourage la participation citoyenne, le partage et les rencontres intergénérationnelles, faisant de L’Aubrière un acteur essentiel de la vie locale.
+          </p>
+        </template>
+
+      </pink-partenaire>
+
       <!-- Flor & Sens Partnership Card -->
       <pink-partenaire :partenaire="monCheminDeCouleur">
 
@@ -250,6 +267,15 @@ const nosSoutiens = ref([
   {image: `${CDN}/ministere.jpg`, name: 'Ministère de l\'éducation'},
   {image: `${CDN}/fdva.jpg`, name: 'Fond pour le développement de la vie associative'},
 ])
+
+const aubriere = ref({
+  image: `${CDN}/aubriere.jpg`,
+  alt: 'Association Aubrière',
+  name: 'Association Aubrière',
+  description: `Association santé et bien-être`,
+  website: 'aubriereinfo.com',
+  location: 'Fondettes'
+});
 
 const becomcha = ref({
   image: `${CDN}/becomcha.png`,
