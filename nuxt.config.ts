@@ -13,7 +13,9 @@ export default defineNuxtConfig({
   },
   googleFonts: {
     families: {
-      "Molle": true,
+      "Molle": {
+        ital: [400]
+      },
     },
     display: 'swap'
   },

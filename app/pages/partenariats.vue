@@ -14,7 +14,7 @@
     <!-- Partenaires Section -->
     <div class="max-w-5xl mx-auto mb-16">
       <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 relative inline-block">
-        Nos partenaires
+        Nos soutiens
         <pink-undeline />
       </h2>
 
@@ -29,7 +29,7 @@
           <!-- First set of logos -->
           <div class="flex shrink-0 gap-16 px-8">
             <div
-                v-for="(partner, index) in nosPartenaires"
+                v-for="(partner, index) in nosSoutiens"
                 :key="`first-${index}`"
                 class="flex items-center justify-center px-6"
             >
@@ -45,7 +45,7 @@
           <!-- Duplicate set for seamless loop -->
           <div class="flex shrink-0 gap-16 px-8">
             <div
-                v-for="(partner, index) in nosPartenaires"
+                v-for="(partner, index) in nosSoutiens"
                 :key="`second-${index}`"
                 class="flex items-center justify-center px-6"
             >
@@ -59,6 +59,11 @@
           </div>
         </div>
       </div>
+
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 relative inline-block">
+        Nos partenaires
+        <pink-undeline />
+      </h2>
 
       <!-- Flor & Sens Partnership Card -->
       <pink-partenaire :partenaire="becomcha">
@@ -234,12 +239,16 @@ definePageMeta({
 
 const CDN = 'https://cdn.nathancouton.fr/partenaires';
 
-const nosPartenaires = ref([
+const nosSoutiens = ref([
   {image: `${CDN}/ballan_mire.jpg`, name: 'Ville de Ballan-Miré'},
   {image: `${CDN}/fondettes.png`, name: 'Ville de Fondettes'},
   {image: `${CDN}/credit_agricole.png`, name: 'Crédit Agricole'},
   {image: `${CDN}/aubriere.jpg`, name: 'Association Aubrière'},
   {image: `${CDN}/helloasso.png`, name: 'HelloAsso'},
+  {image: `${CDN}/appui-sante-37.png`, name: 'Appui Santé 37'},
+  {image: `${CDN}/ligue-cancer.png`, name: 'Ligue Contre le Cancer'},
+  {image: `${CDN}/ministere.jpg`, name: 'Ministère de l\'éducation'},
+  {image: `${CDN}/fdva.jpg`, name: 'Fond pour le développement de la vie associative'},
 ])
 
 const becomcha = ref({
