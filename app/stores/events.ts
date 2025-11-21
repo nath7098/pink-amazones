@@ -37,6 +37,15 @@ export const useEventsStore = defineStore('events', {
                 image: 'https://cdn.nathancouton.fr/event_curi/001.jpg',
             },
             {
+                title: 'Atelier sophrologie',
+                date: new Date('2025/06/28'),
+                location: 'Maison des associations - Place des victoires 37230 PERNAY',
+                description: `Atelier découverte de méditation et sophrologie.`,
+                type: 'Soutien',
+                price: 20,
+                image: 'https://cdn.nathancouton.fr/event_sophrologie_2025/001.jpg',
+            },
+            {
                 title: 'Blabla Café',
                 date: new Date('2025/04/16'),
                 time: '14:00 - 17:00',
@@ -63,7 +72,7 @@ export const useEventsStore = defineStore('events', {
                 date: new Date('2025/03/08'),
                 time: '10:00 - 17:00',
                 location: 'L\'escale - Allée René Coulon 37540 Saint-Cyr-Sur-Loire',
-                description: 'Gratuit et ouvert à tous !',
+                description: 'création d\'un espace chaleureux dédié à l\'échange, soutien et partage d\'expérience, à disposition toute la journée lors du salon des roses, animée par l\'association Pink Amazones.',
                 type: 'Sensibilisation',
                 image: 'https://cdn.eu.yapla.com/company/CPYtv0MnpBl4ROU59xFwmdsIk/88625/241789/images/1-1739978466.jpg'
             },

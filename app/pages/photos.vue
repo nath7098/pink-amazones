@@ -177,7 +177,8 @@ const EVENT_CONFIGS = {
   'event_la_belle_aubriere': {name: 'Marche et course nature à Fondettes', count: 4},
   'event_mfr': {name: 'Intervention MFR d\'azay le rideau', count: 2},
   'event_pslv': {name: 'Stand de sensibilisation et prévention Vinci', count: 3},
-  'event_salon_des_roses_2025': {name: 'Salon des roses', count: 6},
+  'event_salon_des_roses_2025': {name: 'Salon des roses', count: 7},
+  'event_sophrologie_2025': {name: 'Atelier sophrologie', count: 1},
   'event_marche_rose_2025': {name: 'Marche Rose', count: 10}
 };
 
