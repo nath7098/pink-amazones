@@ -3,9 +3,9 @@
     <!-- Contact information banner -->
     <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-x-10 gap-y-4 mb-8 bg-white rounded-lg shadow-md p-6">
       <UTooltip text="3 allée des petites hérissières 37510 Ballan Miré, France">
-        <UButton @click="navigateTo('https://maps.app.goo.gl/Phn344rXTgipe2Kd7', {external: true, open: {target: '_blank'}})" variant="link" class="flex items-center gap-x-2 shrink-0 transition-transform hover:scale-105">
+        <UButton @click="navigateTo('https://maps.app.goo.gl/dcTRUeGYU4eZwSqr8', {external: true, open: {target: '_blank'}})" variant="link" class="flex items-center gap-x-2 shrink-0 transition-transform hover:scale-105">
           <UIcon name="i-heroicons-map-pin" class="w-6 h-6 text-pink-600"/>
-          <div class="text-gray-800 font-medium">Pernay</div>
+          <div class="text-gray-800 font-medium">Ballan-Miré</div>
         </UButton>
       </UTooltip>
       <UButton

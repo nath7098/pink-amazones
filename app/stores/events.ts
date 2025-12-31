@@ -32,7 +32,7 @@ export const useEventsStore = defineStore('events', {
                 title: 'Défi solidaire 20 000 pochettes Institut Curie',
                 date: new Date('2025/09/01'),
                 location: 'Ballan Miré',
-                description: 'Envoie de plusieurs pochettes, trousses confectionnées grateuicesement pour offrir douceur et reconfort aux femmes atteintes du cancer du sein à l\'Institut Curie',
+                description: 'Envoie de plusieurs pochettes, trousses confectionnées gracieusement pour offrir douceur et reconfort aux femmes atteintes du cancer du sein à l\'Institut Curie',
                 type: 'Soutien',
                 image: 'https://cdn.nathancouton.fr/event_curi/001.jpg',
             },
@@ -75,12 +75,6 @@ export const useEventsStore = defineStore('events', {
                 description: 'création d\'un espace chaleureux dédié à l\'échange, soutien et partage d\'expérience, à disposition toute la journée lors du salon des roses, animée par l\'association Pink Amazones.',
                 type: 'Sensibilisation',
                 image: 'https://cdn.eu.yapla.com/company/CPYtv0MnpBl4ROU59xFwmdsIk/88625/241789/images/1-1739978466.jpg'
-            },
-            {
-                title: 'Marche rose 37',
-                date: new Date('2024/10/21'),
-                location: 'Pernay',
-                type: 'Sensibilisation'
             }
         ] as Array<PinkEvent>
     }),
