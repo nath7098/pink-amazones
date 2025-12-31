@@ -8,6 +8,7 @@
         <p class="mb-4">Il y a quelque temps, dans un lieu comme un autre, une simple rencontre a transformé ma vie et celle de nombreuses autres personnes. C'était à la salle de sport, un endroit où je cherchais à retrouver une forme physique après ma rémission d'un cancer du sein. Un jour, en croisant le regard d'une autre femme, Laurence, j'ai ressenti immédiatement une connexion particulière. Elle aussi avait traversé cette épreuve et, elle portait le gène BRCA1.</p>
         <p class="mb-4">Ce n'était pas juste une rencontre fortuite, mais un tournant dans nos vies respectives. Nous avons partagé nos histoires, nos peurs, nos espoirs, et, surtout, l'envie de donner un sens à notre combat.</p>
         <p class="mb-4">C'est ainsi que nous avons fondé Pink Amazones, une association dédiée aux femmes touchées par le cancer du sein, et en particulier celles porteuses du gène BRCA.</p>
+        <p class="mb-4 text-pink-500">Linda MARTINS, présidente Pink Amazones</p>
     </pink-card>
 
     <!-- Mission Section -->

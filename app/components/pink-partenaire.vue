@@ -2,7 +2,7 @@
   <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12 transform transition hover:shadow-xl">
     <div class="md:flex">
       <!-- Left side with image and basic info -->
-      <div class="md:w-2/5 bg-pink-50 p-6 flex flex-col justify-center items-center">
+      <div :class="[full ? 'md:w-2/5' : 'w-full', 'bg-pink-50 p-6 flex flex-col justify-center items-center']">
         <div class="rounded-full bg-white p-4 mb-6 shadow-md">
           <img :src="partenaire.image" :alt="partenaire.alt" class="w-40 h-40 object-contain rounded-full" />
         </div>
@@ -27,7 +27,7 @@
       </div>
 
       <!-- Right side with detailed info -->
-      <div class="md:w-3/5 p-8">
+      <div class="md:w-3/5 p-8" v-if="full">
         <div class="prose max-w-none">
           <slot name="text" />
         </div>
@@ -88,7 +88,7 @@ type Partenaire  = {
   location?: string
 };
 
-const props = defineProps({partenaire: {type: Object as Partenaire, required: true}});
+const props = defineProps({partenaire: {type: Object as Partenaire, required: true}, full: {type: Boolean, default: true, required: false}});
 const partenaire = toRef(() => props.partenaire);
 
 const formatPhone = computed(() => partenaire.value?.phone?.replace(/(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/g, '$1 $2 $3 $4 $5'));

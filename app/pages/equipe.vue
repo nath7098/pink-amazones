@@ -42,7 +42,7 @@
                 Pink Amazones – Quand le combat devient une mission de vie.
               </p>
               <p class="mb-4">
-                Je m'appelle Linda Martins, j’ai 42 ans, je suis maman de deux petites filles.
+                Je m'appelle Linda Martins, je suis maman de deux petites filles.
                 En décembre 2020, le mot que personne ne veut entendre est tombé : cancer du sein hormonodépendant.
                 J’avais 38 ans. Mes filles avaient 4 et 6 ans.
               </p>

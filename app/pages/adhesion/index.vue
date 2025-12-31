@@ -128,7 +128,7 @@
               </li>
             </ul>
             <UButton
-                href="https://pink-amazones.s2.yapla.com/fr/espace-membres"
+                href="https://www.helloasso.com/associations/pink-amazones/adhesions/adhesion-2026"
                 target="_blank"
                 variant="solid"
                 color="pink"
