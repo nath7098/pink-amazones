@@ -115,16 +115,17 @@
               </div>
 
               <div class="flex justify-end">
-                <UButton
-                    v-if="event.link"
-                    @click.prevent="openLink(event.link)"
-                    variant="outline"
-                    color="pink"
-                    class="rounded-full group-hover:bg-pink-600 group-hover:text-white transition-colors"
-                >
-                  <UIcon name="i-heroicons-ticket" class="w-4 h-4 mr-1"/>
-                  S'inscrire
-                </UButton>
+                <div class="flex flex-col gap-2">
+                  <UButton
+                      v-if="event.link"
+                      @click.prevent="openLink(event.link)"
+                      variant="outline"
+                      color="pink"
+                      class="rounded-full group-hover:bg-pink-600 group-hover:text-white transition-colors"
+                  >
+                    <UIcon name="i-heroicons-ticket" class="w-4 h-4 mr-1"/>
+                    S'inscrire
+                  </UButton>
                   <UButton
                       v-if="event.linkAdh"
                       @click.prevent="openLink(event.link)"
@@ -135,6 +136,7 @@
                     <UIcon name="i-heroicons-ticket" class="w-4 h-4 mr-1"/>
                     S'inscrire - Adhérent
                   </UButton>
+                </div>
                 <UButton
                     v-if="!event.link && !event.linkAdh"
                     disabled
