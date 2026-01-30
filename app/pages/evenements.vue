@@ -108,6 +108,10 @@
                   <UIcon name="i-heroicons-currency-euro" class="w-5 h-5 mr-2 text-pink-500"/>
                   <span>{{ event.price.toLocaleString('fr') }} €</span>
                 </div>
+                <div v-if="event.priceAdh != undefined" class="flex items-center text-gray-500">
+                  <UIcon name="i-heroicons-currency-euro" class="w-5 h-5 mr-2 text-pink-500"/>
+                  <span>adhérent : {{ event.priceAdh.toString().match('[0-9]+') ? event.priceAdh.toLocaleString('fr') + " €" : event.priceAdh }}</span>
+                </div>
               </div>
 
               <div class="flex justify-end">
@@ -121,8 +125,18 @@
                   <UIcon name="i-heroicons-ticket" class="w-4 h-4 mr-1"/>
                   S'inscrire
                 </UButton>
+                  <UButton
+                      v-if="event.linkAdh"
+                      @click.prevent="openLink(event.link)"
+                      variant="outline"
+                      color="pink"
+                      class="rounded-full group-hover:bg-pink-600 group-hover:text-white transition-colors"
+                  >
+                    <UIcon name="i-heroicons-ticket" class="w-4 h-4 mr-1"/>
+                    S'inscrire - Adhérent
+                  </UButton>
                 <UButton
-                    v-else
+                    v-if="!event.link && !event.linkAdh"
                     disabled
                     variant="outline"
                     color="pink"
