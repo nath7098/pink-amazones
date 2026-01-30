@@ -305,15 +305,15 @@ const nosPartenaires : Ref<Array<PinkPartenaireType>> = ref([
 ]);
 
 const nosSoutiens: Ref<Array<PinkPartenaireType>> = ref([
-  {image: `${CDN}/ballan_mire.jpg`, name: 'Ville de Ballan-Miré'},
-  {image: `${CDN}/credit_agricole.png`, name: 'Crédit Agricole'},
-  {image: `${CDN}/aubriere.jpg`, name: 'Association Aubrière'},
-  {image: `${CDN}/helloasso.png`, name: 'HelloAsso'},
-  {image: `${CDN}/appui-sante-37.png`, name: 'Appui Santé 37'},
-  {image: `${CDN}/ligue-cancer.png`, name: 'Ligue Contre le Cancer 37'},
-  {image: `${CDN}/ministere.jpg`, name: ` Ministère de l'éducation nationale jeunesse et sport`},
-  {image: `${CDN}/fdva.jpg`, name: 'Fond pour le développement de la vie associative'},
-  {image: `${CDN}/cort37.png`, name: 'C.O.R.T 37'},
+  {image: `${CDN}/ballan_mire.jpg`, name: 'Ville de Ballan-Miré', website: 'https://www.mairie-ballan-mire.fr/'},
+  {image: `${CDN}/credit_agricole.png`, name: 'Crédit Agricole', website: 'https://www.credit-agricole.fr/ca-tourainepoitou/particulier.html'},
+  {image: `${CDN}/aubriere.jpg`, name: 'Association Aubrière', website: 'https://www.aubriereinfo.com/'},
+  {image: `${CDN}/helloasso.png`, name: 'HelloAsso', website: 'https://www.helloasso.com/'},
+  {image: `${CDN}/appui-sante-37.png`, name: 'Appui Santé 37', website: 'https://appuisante37.org/'},
+  {image: `${CDN}/ligue-cancer.png`, name: 'Ligue Contre le Cancer 37', website: 'https://www.ligue-cancer.net/37-indreetloire'},
+  {image: `${CDN}/ministere.jpg`, name: ` Ministère de l'éducation nationale jeunesse et sport`, website: 'https://www.education.gouv.fr/'},
+  {image: `${CDN}/fdva.jpg`, name: 'Fond pour le développement de la vie associative', website: 'https://associations.gouv.fr/fdva-fonctionnement-innovation-les-appels-projets-2026'},
+  {image: `${CDN}/cort37.png`, name: 'C.O.R.T 37', website: 'https://www.cort37.fr/'},
   {image: `${CDN}/it_imprimeur.jpg`, name: 'IT Imprimeur'},
 ])
 

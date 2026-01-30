@@ -68,47 +68,6 @@
       </template>
     </pink-card>
 
-    <!-- Financial Support Section -->
-    <div
-        class="bg-gradient-to-r from-pink-50 to-white rounded-xl shadow-lg p-8 mb-16 max-w-5xl mx-auto border-l-4 border-pink-500">
-      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 relative">
-        Notre Vision
-        <div class="absolute -bottom-2 left-0 w-16 h-1 bg-pink-500 rounded-full"></div>
-      </h2>
-
-      <p class="text-gray-700 leading-relaxed mb-6">
-        En plus de toutes nos actions de sensibilisation et prévention au dépistage du cancer du sein, nous
-        souhaiterions avec les dons, cotisations, arriver à co-financer une partie des besoins des malades comme :
-      </p>
-
-      <div class="grid md:grid-cols-2 gap-4 mb-8 text-gray-700">
-        <div class="bg-white p-4 rounded-lg shadow-sm border border-pink-100 flex items-start">
-          <UIcon name="i-heroicons-home" class="w-5 h-5 text-pink-500 mr-3 mt-1"/>
-          <p>Les frais de chambre particulière après opération</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-sm border border-pink-100 flex items-start">
-          <UIcon name="i-heroicons-shopping-bag" class="w-5 h-5 text-pink-500 mr-3 mt-1"/>
-          <p>Aide à l'achat de gaines et soutiens-gorge post-opératoires</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-sm border border-pink-100 flex items-start">
-          <UIcon name="i-heroicons-sparkles" class="w-5 h-5 text-pink-500 mr-3 mt-1"/>
-          <p>Perruque, prothèse non prise en charge suite à la perte ou prise de poids rapide</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-sm border border-pink-100 flex items-start">
-          <UIcon name="i-heroicons-heart" class="w-5 h-5 text-pink-500 mr-3 mt-1"/>
-          <p>Frais pour une activité physique adaptée</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-sm border border-pink-100 flex items-start">
-          <UIcon name="i-heroicons-banknotes" class="w-5 h-5 text-pink-500 mr-3 mt-1"/>
-          <p>Reste à charge sur les opérations de reconstruction</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-sm border border-pink-100 flex items-start">
-          <UIcon name="i-heroicons-chat-bubble-bottom-center-text" class="w-5 h-5 text-pink-500 mr-3 mt-1"/>
-          <p>Séances de psychologues pour les malades, leurs conjoints et enfants</p>
-        </div>
-      </div>
-    </div>
-
     <!-- Call to Action -->
     <div class="text-center max-w-4xl mx-auto mb-16">
       <p class="text-2xl font-bold text-pink-700 mb-8">Agissons aujourd'hui pour un avenir plus fort et plus serein.</p>
@@ -202,7 +161,7 @@
 <script setup lang="ts">
 definePageMeta({
   title: 'Bienvenue sur Pink Amazones',
-  catchLine: 'Ensemble contre le cancer du sein'
+  catchLine: 'Tous unis pour une même cause'
 });
 
 const next2Events = useEventsStore().next2Events;

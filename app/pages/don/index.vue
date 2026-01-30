@@ -163,11 +163,7 @@
             <div class="absolute -bottom-2 left-0 w-16 h-1 bg-pink-500 rounded-full"></div>
           </h2>
 
-          <div class="grid md:grid-cols-3 gap-8 mb-8">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-              <div class="font-bold text-3xl text-pink-600 mb-2">20€</div>
-              <p class="text-gray-700">Finance une heure d'accompagnement psychologique pour une patiente.</p>
-            </div>
+          <div class="grid md:grid-cols-2 gap-8 mb-8">
 
             <div class="bg-white p-6 rounded-lg shadow-md">
               <div class="font-bold text-3xl text-pink-600 mb-2">50€</div>

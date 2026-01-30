@@ -98,44 +98,6 @@
         </div>
       </div>
 
-      <!-- Laurence Fontaine Moreau - Vice-Présidente -->
-      <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12 transform transition hover:shadow-xl">
-        <div class="md:flex">
-          <!-- Left side with image and basic info -->
-          <div class="md:w-2/5 bg-pink-50 p-6 flex flex-col justify-center items-center">
-            <div class="rounded-full bg-white p-4 mb-6 shadow-md">
-              <img src="/img/equipe/laurence-fontaine-moreau.jpg" alt="Laurence Fontaine Moreau" class="w-[20rem] h-[20rem] object-cover rounded-full" />
-            </div>
-            <h3 class="text-2xl font-bold text-pink-600 mb-3 text-center">Laurence Fontaine Moreau</h3>
-            <p class="text-gray-600 text-center font-medium mb-4">Vice-Présidente</p>
-            <div class="flex items-center bg-pink-200 text-pink-800 px-4 py-2 rounded-full font-bold mb-4">
-              <UIcon name="i-heroicons-heart" class="w-5 h-5 mr-2"/>
-              <span>Porteuse du gène BRCA1</span>
-            </div>
-          </div>
-
-          <!-- Right side with detailed info -->
-          <div class="md:w-3/5 p-8">
-            <div class="prose max-w-none">
-              <p class="mb-4 font-medium text-lg text-pink-700">
-                Bonjour à vous tous, malades en traitement ou non, familles, amis, soignants et toutes personnes concernées de près ou de loin par cette maladie du Cancer.
-              </p>
-              <p class="mb-4">
-                Je m'approche de vous aujourd'hui via notre association pour d'une part me présenter mais aussi témoigner en tant que malade mais pas seulement de ce combat que j'ai dû mener et d'une certaine manière que je mène au quotidien depuis toujours.
-              </p>
-              <p class="mb-4">
-                Effectivement pour ma part, je n'ai pas pris cette maladie en pleine face à l'aube de mes 50 ans car malheureusement dès ma plus tendre enfance au plus loin que je me souvienne, elle avait une place et ce depuis toujours au sein notre famille. Était ce la faute à « pas de chance » ? Ou une famille à risque ? Tout ce questionnement que mes parents, grands-parents, oncles tantes évoquaient régulièrement ont enfin eu réponse à l'année 2010 et cette réponse avait un nom « mutation BRCA1 » !
-              </p>
-              <p class="mb-4">
-                À l'aube de mes 50 ans j'ai rejoint le clan des malades c'était mon tour ! Grosse chimiothérapie pour pouvoir m'opérer puis double mastectomie et pour finir radiothérapie. Et vraiment le combat devient très différent, très compliqué et surtout nous oblige à faire le deuil de notre « moi » d'avant car l'évidence est qu'il y a une fin à accepter au delà de la survie !
-              </p>
-              <p class="italic text-pink-600 font-medium">
-                "Je veux être là pour vous dans vos moments de guerre, de souffrance, de doute mais aussi de retour à cette nouvelle vie si particulière qui vous attend avec son lot de déception, de bonheur retrouvé et surtout d'espoir!"
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Other Team Members -->
@@ -159,21 +121,6 @@
             <div class="font-italic text-pink-600">Parce qu’au fond, derrière chaque projet, il y a une équipe (et parfois un homme avec une
               calculette).</div>
           </template>
-        </pink-bureau-member>
-
-        <!-- Ambroisine - Secrétaire -->
-        <pink-bureau-member name="Ambroisine Dissakalou" post="Secrétaire" image="/img/equipe/ambroisine-dissakalou.png">
-          <div><span class="text-pink-600">Je suis Ambroisine</span>, secrétaire de l'association.</div>
-          <div>
-            J’ai choisi de m’investir dans ce groupe car l’histoire de Linda m’a profondément émue. Ayant moi-même vécu
-            de près le cancer à travers mon amie Laurence, je n’ai pas hésité une seconde : je me suis sentie immédiatement concernée.
-          </div>
-          <div>
-            En tant que soignante dans un service accueillant des pathologies similaires, je sais à quel point il est
-            difficile de faire face à la maladie, surtout lorsqu’on est seule.
-          </div>
-          <div>Et puis, au fond, nous sommes toutes et tous concerné(e)s.</div>
-          <div class="font-italic text-pink-600">Quand on peut donner un peu de son temps pour une bonne cause, il ne faut pas hésiter — c’est une évidence pour moi.</div>
         </pink-bureau-member>
       </div>
     </div>
