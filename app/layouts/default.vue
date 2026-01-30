@@ -97,7 +97,7 @@
         <div class="flex flex-col md:flex-row justify-between items-center">
           <div class="mb-4 md:mb-0">
             <div class="font-molle text-2xl mb-2"><span class="text-primary">Pink</span> Amazones</div>
-            <p class="text-gray-400">Ensemble contre le cancer du sein</p>
+            <p class="text-gray-400">Tous unis pour une même cause</p>
           </div>
 
           <div class="flex space-x-4">
