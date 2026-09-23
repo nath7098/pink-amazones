@@ -112,7 +112,8 @@
           <div class="h-2 bg-pink-600"></div>
           <div class="p-6">
             <h3 class="font-bold text-xl text-gray-800 mb-2">Adhésion Pink Amazones</h3>
-            <div class="text-pink-600 text-3xl font-bold mb-4">30€ <span class="text-sm text-gray-500 font-normal">/an</span></div>
+            <div class="text-pink-600 text-3xl font-bold mb-1">20€ <span class="text-sm text-gray-500 font-normal">/an</span></div>
+            <p class="text-sm text-gray-500 mb-4">Valable 12 mois, de date à date, à compter du jour de votre adhésion.</p>
             <ul class="space-y-2 mb-6">
               <li class="flex items-start">
                 <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>
@@ -258,6 +259,10 @@ const accordionItems = ref([
   {
     label: 'Comment mon adhésion est-elle utilisée ?',
     content: 'Votre cotisation nous permet de financer nos actions de soutien, de sensibilisation et de prévention.',
+  },
+  {
+    label: 'Combien coûte l\'adhésion et quelle est sa durée ?',
+    content: 'La cotisation annuelle est de 20€. Elle n\'est plus rattachée à l\'année civile : votre adhésion est valable 12 mois de date à date, à compter du jour où vous adhérez (par exemple, une adhésion prise le 15 octobre 2026 est valable jusqu\'au 14 octobre 2027).',
   },
   {
   label: 'Puis-je m\'impliquer en tant que bénévole ?',

@@ -41,6 +41,7 @@
               v-for="(item, index) in [
             { to: '/', label: 'Accueil' },
             { to: '/evenements', label: 'Nos événements' },
+            { to: '/autopalpation', label: 'Autopalpation' },
             { to: '/adhesion', label: 'Adhésion' },
             { to: '/don', label: 'Don' },
             { to: '/partenariats', label: 'Partenaires'},
