@@ -52,13 +52,13 @@ export const useEventsStore = defineStore('events', {
                 image: '/img/events/2026/calendrier-octobre-novembre-2026.jpg',
             },
             {
-                title: 'Octobre Rose - Stand de sensibilisation à Langeais',
+                title: 'Octobre Rose - Atelier de sensibilisation à Langeais',
                 date: new Date('2026/10/08'),
                 time: '9h30 - 12h30',
-                location: 'Centre social La Fabrique - Langeais',
-                description: 'Stand de sensibilisation et de prévention. Venez découvrir notre buste pédagogique d\'autopalpation !',
+                location: 'Centre social La Fabrique, 4 place de la Douve - Langeais',
+                description: 'Atelier de sensibilisation et de prévention par Pink Amazones : témoignage, questions - réponses et découverte de notre buste pédagogique d\'autopalpation. Inscription auprès de La Fabrique : 07 81 56 01 89 ou animation.lafabrique@agora-asso.fr',
                 type: 'Sensibilisation',
-                image: '/img/events/2026/calendrier-octobre-novembre-2026.jpg',
+                image: '/img/events/2026/octobre-rose-langeais.jpg',
             },
             {
                 title: 'Octobre Rose - Marche solidaire Wefit.club',

@@ -121,10 +121,6 @@
               </li>
               <li class="flex items-start">
                 <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>
-                <span class="text-gray-700">Pour tous les membres du foyer</span>
-              </li>
-              <li class="flex items-start">
-                <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"/>
                 <span class="text-gray-700">Invitation aux événements familiaux</span>
               </li>
             </ul>

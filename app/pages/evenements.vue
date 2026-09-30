@@ -211,7 +211,7 @@
           <div class="absolute -bottom-2 left-0 w-16 h-1 bg-pink-500 rounded-full"></div>
         </h2>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
           <button v-for="(poster, index) in posters" :key="index"
                   class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-pink-100 text-left"
                   @click="openPoster(poster)">
@@ -463,6 +463,7 @@ const collecte = {src: '/img/events/2026/collecte-solidaire.jpg', alt: 'Collecte
 const posters = [
   calendar,
   {src: '/img/events/2026/marche-solidaire-wefit.jpg', alt: 'Marche solidaire - 3 octobre 2026'},
+  {src: '/img/events/2026/octobre-rose-langeais.jpg', alt: 'Octobre Rose à Langeais - 8 octobre 2026'},
   {src: '/img/events/2026/octobre-rose-cormery.jpg', alt: 'Octobre Rose à Cormery - 11 octobre 2026'},
   {src: '/img/events/2026/belle-aubriere-fondettes.jpg', alt: 'La Belle Aubrière - 7 novembre 2026'},
   {src: '/img/events/2026/belle-aubriere-programme.jpg', alt: 'La Belle Aubrière - Programme'},

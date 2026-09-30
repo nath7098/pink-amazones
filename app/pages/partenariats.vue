@@ -263,6 +263,29 @@ const nosPartenaires : Ref<Array<PinkPartenaireType>> = ref([
     `
   },
   {
+    image: '/img/partenaires/sensora.jpg',
+    alt: 'Sens\'Ora',
+    name: 'Pink Amazones x Sens\'Ora',
+    description: 'Praticienne bien-être : relaxation olfactive et massage Étoile',
+    contactName: 'Chantal Landrieu',
+    location: 'Fondettes',
+    text: `
+    <p class="mb-4">
+            <strong>Chantal Landrieu</strong>, praticienne bien-être à Fondettes, propose des séances de
+            <strong>relaxation olfactive</strong> et de <strong>massage Étoile</strong>, un massage d'accompagnement
+            sensoriel axé sur les mains, les pieds, le visage et le cuir chevelu.
+          </p>
+          <p class="mb-4">
+            À travers les senteurs des huiles essentielles et un toucher doux et apaisant, ces séances invitent à
+            ralentir, respirer et relâcher les tensions.
+          </p>
+          <p class="mb-4">
+            Chaque accompagnement est pensé comme une parenthèse de détente pour se reconnecter à ses sensations et
+            retrouver un moment de calme dans le rythme du quotidien.
+          </p>
+    `
+  },
+  {
     image: `${CDN}/crabette.jpg`,
     alt: 'Crabette',
     name: 'Pink Amazones x Crabette',
