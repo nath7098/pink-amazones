@@ -6,4 +6,8 @@ export type PinkEvent = {
     description?: String;
     type: 'Sensibilisation' | 'Soutien' | 'Collecte de fonds';
     image?: String;
+    price?: number | String;
+    priceAdh?: number | String;
+    link?: String;
+    linkAdh?: String;
 };

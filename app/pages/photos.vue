@@ -171,8 +171,10 @@ definePageMeta({
 // CDN Configuration
 const CDN_BASE_URL = 'https://cdn.nathancouton.fr/';
 
-// Event directories with image counts
-const EVENT_CONFIGS = {
+// Event directories with image counts (base overrides the CDN for images hosted with the site)
+const EVENT_CONFIGS: Record<string, {name: string, count: number, base?: string}> = {
+  'stand_autopalpation': {name: 'Stand de sensibilisation avec le buste d\'autopalpation', count: 5, base: '/img/photos/'},
+  'ateliers_bien_etre_2026': {name: 'Ateliers bien-être 2026', count: 2, base: '/img/photos/'},
   'event_curi': {name: 'Défi solidaire 20 000 pochettes Institut Curie', count: 2},
   'event_la_belle_aubriere': {name: 'Marche et course nature à Fondettes', count: 4},
   'event_mfr': {name: 'Intervention MFR d\'azay le rideau', count: 2},
@@ -198,7 +200,7 @@ const getImagesForDirectory = (directory: string, data: any) => {
 
   for (let i = 1; i <= data.count; i++) {
     const paddedIndex = String(i).padStart(3, '0');
-    const imageUrl = `${CDN_BASE_URL}${directory}/${paddedIndex}.jpg`;
+    const imageUrl = `${data.base ?? CDN_BASE_URL}${directory}/${paddedIndex}.jpg`;
 
     images.push({
       src: imageUrl,

@@ -5,6 +5,102 @@ export const useEventsStore = defineStore('events', {
     state: () => ({
         events: [
             {
+                title: 'La Belle Aubrière 2026 - Marche et course nature',
+                date: new Date('2026/11/07'),
+                time: 'RdV 9h - Départ 10h',
+                location: 'Halle de la Morandière - Fondettes',
+                description: 'Marche / course nature solidaire (boucle de 6 km, faites autant de tours que vous le souhaitez !) dans le cadre d\'Octobre Rose. Retrouvez Pink Amazones sur son stand de sensibilisation au village solidaire (9h - 14h). Participation dès 8 € ou don libre.',
+                type: 'Sensibilisation',
+                link: 'https://aubriereasso.com',
+                image: '/img/events/2026/belle-aubriere-fondettes.jpg',
+            },
+            {
+                title: 'Octobre Rose - Tournoi féminin de tennis de table',
+                date: new Date('2026/10/23'),
+                time: '19h - 23h',
+                location: 'Gymnase Buissonnière, rue de la Buissonnière - Véretz',
+                description: 'Tournoi féminin de tennis de table et stand de sensibilisation Pink Amazones.',
+                type: 'Sensibilisation',
+                image: '/img/events/2026/calendrier-octobre-novembre-2026.jpg',
+            },
+            {
+                title: 'Octobre Rose - Stand de sensibilisation à Fondettes',
+                date: new Date('2026/10/18'),
+                time: '8h30 - 12h30',
+                location: 'Halle de la Morandière - Fondettes',
+                description: 'Stand de sensibilisation et de prévention. Venez découvrir notre buste pédagogique d\'autopalpation !',
+                type: 'Sensibilisation',
+                image: '/img/events/2026/calendrier-octobre-novembre-2026.jpg',
+            },
+            {
+                title: 'Octobre Rose - Marchons pour la vie',
+                date: new Date('2026/10/11'),
+                time: '10 km : départ 9h30 - 5 km : départ 10h',
+                location: 'Départ du silo - Cormery',
+                description: 'Marche rose ouverte à tous, enfants et adultes, avec 2 parcours (5 km et 10 km) et stand de sensibilisation Pink Amazones. Les dons seront reversés à l\'association Pink Amazones. Gratuit pour les moins de 6 ans. Inscription via le QR code de l\'affiche.',
+                type: 'Collecte de fonds',
+                price: 5,
+                image: '/img/events/2026/octobre-rose-cormery.jpg',
+            },
+            {
+                title: 'Octobre Rose - Stand de sensibilisation à Ballan-Miré',
+                date: new Date('2026/10/09'),
+                time: '8h30 - 12h30',
+                location: 'Devant la mairie - Ballan-Miré',
+                description: 'Stand de sensibilisation et de prévention. Venez découvrir notre buste pédagogique d\'autopalpation !',
+                type: 'Sensibilisation',
+                image: '/img/events/2026/calendrier-octobre-novembre-2026.jpg',
+            },
+            {
+                title: 'Octobre Rose - Atelier de sensibilisation à Langeais',
+                date: new Date('2026/10/08'),
+                time: '9h30 - 12h30',
+                location: 'Centre social La Fabrique, 4 place de la Douve - Langeais',
+                description: 'Atelier de sensibilisation et de prévention par Pink Amazones : témoignage, questions - réponses et découverte de notre buste pédagogique d\'autopalpation. Inscription auprès de La Fabrique : 07 81 56 01 89 ou animation.lafabrique@agora-asso.fr',
+                type: 'Sensibilisation',
+                image: '/img/events/2026/octobre-rose-langeais.jpg',
+            },
+            {
+                title: 'Octobre Rose - Marche solidaire Wefit.club',
+                date: new Date('2026/10/03'),
+                time: 'Départ 9h',
+                location: 'Devant Wefit.club - Neuillé-Pont-Pierre',
+                description: 'Marche solidaire de 9 km au profit de la Ligue contre le cancer, ouverte à tous, adhérents ou non. Pink Amazones y anime un stand de sensibilisation à l\'autopalpation. Participation libre.',
+                type: 'Sensibilisation',
+                image: '/img/events/2026/marche-solidaire-wefit.jpg',
+            },
+            {
+                title: 'Atelier "gestion du stress" - Réunion d\'information',
+                date: new Date('2026/10/03'),
+                time: '14h - 16h',
+                location: 'Salle Jean Mermoz - Ballan-Miré',
+                description: 'Réunion d\'information autour de notre atelier "gestion du stress".',
+                type: 'Soutien',
+                image: '/img/events/2026/calendrier-octobre-novembre-2026.jpg',
+            },
+            {
+                title: 'Relaxation olfactive guidée & Blabla café',
+                date: new Date('2026/05/16'),
+                time: '14h30 - 16h30',
+                location: 'Ballan-Miré',
+                description: 'Une parenthèse pour se déposer, respirer et se recentrer : relaxation olfactive guidée, animée bénévolement par Chantal Landrieu (Sens\'Ora), suivie d\'un blabla café avec Linda.',
+                type: 'Soutien',
+                price: 10,
+                priceAdh: 'gratuit',
+                image: '/img/events/2026/relaxation-olfactive.jpg',
+            },
+            {
+                title: 'L\'atelier des senteurs apaisantes',
+                date: new Date('2026/04/18'),
+                time: '10h - 12h',
+                location: 'Ballan-Miré',
+                description: 'Un voyage olfactif créatif, animé bénévolement par Chantal Landrieu (Sens\'Ora).',
+                type: 'Soutien',
+                price: 15,
+                priceAdh: 'gratuit',
+                image: '/img/events/2026/atelier-senteurs-apaisantes.jpg',
+            },
+            {
                 title: 'Vivre mieux le cancer en touraine',
                 date: new Date('2026/03/14'),
                 time: '10h30 - 18h',
@@ -127,7 +223,7 @@ export const useEventsStore = defineStore('events', {
     }),
     getters: {
         orderedEvents(state) {
-            return state.events.sort((a, b) => a.date.getTime() >= b.date.getTime() ? 1 : -1)
+            return [...state.events].sort((a, b) => a.date.getTime() - b.date.getTime())
         },
         upcomingEvents(): Array<PinkEvent> {
             return this.orderedEvents.filter((e: PinkEvent) => e.date.getTime() >= Date.now())
@@ -136,7 +232,7 @@ export const useEventsStore = defineStore('events', {
             return this.upcomingEvents.filter((e, i) => i < 2)
         },
         pastEvents(): Array<PinkEvent> {
-            return this.orderedEvents.reverse().filter((e: PinkEvent) => e.date.getTime() < Date.now())
+            return [...this.orderedEvents].reverse().filter((e: PinkEvent) => e.date.getTime() < Date.now())
         },
     },
     actions: {}

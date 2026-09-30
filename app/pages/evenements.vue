@@ -12,6 +12,42 @@
         </div>
       </div>
 
+      <!-- Calendar Highlight Section -->
+      <div class="max-w-5xl mx-auto mb-16">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-pink-100">
+          <div class="flex flex-col md:flex-row">
+            <button class="md:w-2/5 bg-pink-50 p-4 flex items-center justify-center" @click="openPoster(calendar)">
+              <img :src="calendar.src" :alt="calendar.alt" class="rounded-lg shadow-md max-h-[32rem] object-contain transition-transform hover:scale-[1.02]"/>
+            </button>
+            <div class="md:w-3/5 p-8">
+              <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 relative inline-block">
+                Octobre Rose & novembre 2026
+                <div class="absolute -bottom-2 left-0 w-16 h-1 bg-pink-500 rounded-full"></div>
+              </h2>
+              <p class="text-gray-700 mb-4">
+                Retrouvez tous nos rendez-vous d'Octobre Rose et de novembre 2026 : marches solidaires, stands de
+                sensibilisation, tournoi de tennis de table... Ensemble contre le cancer du sein !
+              </p>
+              <p class="text-gray-700 mb-6">
+                Cette année, retrouvez sur nos stands notre
+                <ULink to="/autopalpation" class="text-pink-600 font-semibold hover:underline">buste pédagogique d'autopalpation</ULink> :
+                un nouvel outil pour une prévention plus concrète et interactive !
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <UButton variant="solid" color="pink" class="rounded-full" @click="openPoster(calendar)">
+                  <UIcon name="i-heroicons-calendar-days" class="w-5 h-5 mr-1"/>
+                  Voir le calendrier
+                </UButton>
+                <UButton variant="outline" color="pink" class="rounded-full" to="/autopalpation">
+                  <UIcon name="i-heroicons-hand-raised" class="w-5 h-5 mr-1"/>
+                  L'autopalpation
+                </UButton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Filter Section -->
       <div class="max-w-5xl mx-auto mb-8">
         <div class="bg-white rounded-xl shadow-md p-6 flex flex-col md:flex-row gap-4 justify-between items-center">
@@ -77,7 +113,7 @@
                class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-pink-100">
             <div class="h-48 bg-pink-100 relative overflow-hidden">
               <div class="absolute inset-0 bg-pink-200 flex items-center justify-center">
-                <img v-if="event.image" :src="event.image" class="absolute top-0"/>
+                <img v-if="event.image" :src="event.image" :alt="event.title" class="absolute top-0 w-full cursor-zoom-in" @click="openPoster({src: event.image, alt: event.title})"/>
                 <UIcon v-else name="i-heroicons-calendar-days" class="w-24 h-24 text-pink-300"/>
               </div>
               <div
@@ -128,7 +164,7 @@
                   </UButton>
                   <UButton
                       v-if="event.linkAdh"
-                      @click.prevent="openLink(event.link)"
+                      @click.prevent="openLink(event.linkAdh)"
                       variant="outline"
                       color="pink"
                       class="rounded-full group-hover:bg-pink-600 group-hover:text-white transition-colors"
@@ -165,6 +201,58 @@
           >
             Voir tous les événements
           </UButton>
+        </div>
+      </div>
+
+      <!-- Posters Section -->
+      <div class="max-w-5xl mx-auto mb-16">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 relative inline-block">
+          Nos affiches
+          <div class="absolute -bottom-2 left-0 w-16 h-1 bg-pink-500 rounded-full"></div>
+        </h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <button v-for="(poster, index) in posters" :key="index"
+                  class="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-pink-100 text-left"
+                  @click="openPoster(poster)">
+            <div class="aspect-[3/4] overflow-hidden bg-pink-50">
+              <img :src="poster.src" :alt="poster.alt" loading="lazy"
+                   class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"/>
+            </div>
+            <p class="p-3 text-sm font-medium text-gray-700 group-hover:text-pink-600">{{ poster.alt }}</p>
+          </button>
+        </div>
+      </div>
+
+      <!-- Collecte Solidaire Section -->
+      <div class="max-w-5xl mx-auto mb-16">
+        <div class="bg-gradient-to-r from-pink-50 to-pink-100 rounded-xl shadow-md overflow-hidden">
+          <div class="p-8 flex flex-col md:flex-row gap-8 items-center">
+            <div class="md:w-2/3">
+              <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 relative inline-block">
+                Collecte solidaire
+                <div class="absolute -bottom-2 left-0 w-16 h-1 bg-pink-500 rounded-full"></div>
+              </h2>
+              <p class="text-gray-700 mb-4">
+                Donnez une seconde vie à vos accessoires ! Pink Amazones collecte vos accessoires liés au parcours du
+                cancer du sein afin qu'ils puissent être utiles à d'autres femmes : soutiens-gorge, brassières et
+                lingerie post-opératoires, prothèses mammaires externes, maillots de bain adaptés, accessoires
+                post-opératoires (foulards, coussins, ceintures...).
+              </p>
+              <p class="text-gray-700 mb-4">
+                Les articles collectés sont transmis à <span class="font-semibold">Crabette</span> (Toulouse), qui les
+                trie et les valorise pour permettre à des femmes touchées par le cancer du sein d'accéder à des
+                accessoires adaptés à des prix accessibles. Les articles déposés doivent être propres et en parfait état.
+              </p>
+              <p class="text-gray-700 font-medium">
+                <UIcon name="i-heroicons-map-pin" class="w-5 h-5 mr-1 text-pink-600 align-text-bottom"/>
+                Boîte de collecte solidaire disponible à la mairie de Ballan-Miré.
+              </p>
+            </div>
+            <button class="md:w-1/3" @click="openPoster(collecte)">
+              <img :src="collecte.src" :alt="collecte.alt" loading="lazy" class="rounded-lg shadow-md transition-transform hover:scale-[1.02]"/>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -290,6 +378,23 @@
           </UButton>
         </div>
       </div>
+      <!-- Poster Lightbox -->
+      <UModal v-model="posterOpen" :ui="{ width: 'sm:max-w-3xl' }">
+        <div class="p-4 bg-white rounded-lg">
+          <div class="relative">
+            <img :src="currentPoster?.src" :alt="currentPoster?.alt" class="w-full rounded-lg"/>
+            <UButton
+                variant="ghost"
+                color="white"
+                class="absolute top-2 right-2 bg-pink-900/50 hover:bg-pink-900/70"
+                @click="posterOpen = false"
+            >
+              <UIcon name="i-heroicons-x-mark" class="w-5 h-5"/>
+            </UButton>
+          </div>
+          <p class="mt-3 font-bold text-gray-800">{{ currentPoster?.alt }}</p>
+        </div>
+      </UModal>
     </div>
 </template>
 
@@ -351,6 +456,26 @@ const filteredPastEvents = computed(() => {
     return pastEvents.filter(event => event.type === filterMap[activeFilter.value]);
   }
 });
+
+// Posters
+const calendar = {src: '/img/events/2026/calendrier-octobre-novembre-2026.jpg', alt: 'Calendrier Octobre Rose & novembre 2026'};
+const collecte = {src: '/img/events/2026/collecte-solidaire.jpg', alt: 'Collecte solidaire'};
+const posters = [
+  calendar,
+  {src: '/img/events/2026/marche-solidaire-wefit.jpg', alt: 'Marche solidaire - 3 octobre 2026'},
+  {src: '/img/events/2026/octobre-rose-langeais.jpg', alt: 'Octobre Rose à Langeais - 8 octobre 2026'},
+  {src: '/img/events/2026/octobre-rose-cormery.jpg', alt: 'Octobre Rose à Cormery - 11 octobre 2026'},
+  {src: '/img/events/2026/belle-aubriere-fondettes.jpg', alt: 'La Belle Aubrière - 7 novembre 2026'},
+  {src: '/img/events/2026/belle-aubriere-programme.jpg', alt: 'La Belle Aubrière - Programme'},
+];
+
+const posterOpen = ref(false);
+const currentPoster = ref(null);
+
+const openPoster = (poster) => {
+  currentPoster.value = poster;
+  posterOpen.value = true;
+}
 
 const openLink = (link) => {
   if (link) {

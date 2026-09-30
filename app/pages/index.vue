@@ -102,6 +102,40 @@
       </div>
     </div>
 
+    <!-- Autopalpation Highlight -->
+    <div class="max-w-5xl mx-auto mb-16">
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-pink-100">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/2 bg-pink-50">
+            <img src="/img/autopalpation/buste.jpg" alt="Buste pédagogique d'autopalpation" class="w-full h-full object-cover"/>
+          </div>
+          <div class="md:w-1/2 p-8 flex flex-col justify-center">
+            <div class="text-sm font-bold text-pink-600 uppercase tracking-wide mb-2">Nouveau</div>
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 relative inline-block">
+              Notre buste pédagogique d'autopalpation
+              <div class="absolute -bottom-2 left-0 w-16 h-1 bg-pink-500 rounded-full"></div>
+            </h2>
+            <p class="text-gray-700 mb-6">
+              Retrouvez sur nos stands notre buste pédagogique d'autopalpation : un nouvel outil pour une prévention plus
+              concrète et interactive. Découvrez les bons gestes et consultez notre notice « Connaître ses seins ».
+            </p>
+            <div>
+              <UButton
+                  variant="solid"
+                  color="pink"
+                  size="lg"
+                  class="rounded-full shadow-md transform transition-transform hover:scale-105"
+                  to="/autopalpation"
+              >
+                <UIcon name="i-heroicons-hand-raised" class="w-5 h-5 mr-2"/>
+                Découvrir l'autopalpation
+              </UButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Upcoming Events Preview -->
     <div class="bg-white rounded-xl shadow-lg p-8 max-w-5xl mx-auto">
       <div class="flex justify-between items-center mb-6">
@@ -127,7 +161,7 @@
              class="border border-pink-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
           <div class="h-40 bg-pink-200 relative overflow-hidden">
             <div class="absolute inset-0 flex items-center justify-center text-pink-100">
-              <img v-if="event.image" :src="event.image" class="absolute top-0"/>
+              <img v-if="event.image" :src="event.image" :alt="event.title" class="absolute top-0 w-full"/>
               <UIcon v-else name="i-heroicons-calendar-days" class="w-24 h-24"/>
             </div>
             <div class="absolute top-4 left-4 bg-pink-600 text-white py-1 px-3 rounded-full text-sm font-bold">

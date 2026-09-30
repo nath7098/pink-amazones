@@ -12,7 +12,7 @@
           <UIcon name="i-heroicons-tag" class="w-5 h-5 mr-2"/>
           <span>{{ partenaire.reduction }}</span>
         </div>
-        <div class="mt-4">
+        <div v-if="partenaire.website" class="mt-4">
           <UButton
               :to="`https://${partenaire.website}`"
               target="_blank"
